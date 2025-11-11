@@ -1,0 +1,11 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+.w3-card {
+  border-radius: 12px;
+}
