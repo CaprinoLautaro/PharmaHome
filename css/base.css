@@ -1,0 +1,205 @@
+:root {
+    --primary-color: #8c52ff; 
+    --secondary-color: #00bf63; 
+    --primary-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+
+    --dark-text: #212529;
+    --grey-text: #6c757d;
+    --light-grey-border: #ced4da;
+    --footer-bg: #f0f4f8;
+}
+
+/* ---- Encabezado y Navegacion ---- */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* --- Barra Superior --- */
+.top-bar {
+    gap: 1rem; 
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    font-size: 1.8rem;
+    flex-shrink: 0; 
+}
+
+.navbar-brand .fa-plus {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.search-form .form-control {
+    border-radius: 50px 0 0 50px;
+    border: 1px solid #ced4da;
+    border-right: none;
+    padding: 0.6rem 1.2rem;
+    height: 44px; 
+}
+.search-form .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(140, 82, 255, 0.25);
+    border-color: var(--primary-color);
+}
+
+.search-form .btn {
+    border-radius: 0 50px 50px 0;
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+    width: 50px; 
+    height: 44px;
+}
+
+/* Acciones de usuario a la derecha */
+.user-actions {
+    gap: 0.5rem;
+}
+
+/* Botón del Carrito */
+.btn-carrito {
+    background-color: transparent;
+    color: var(--grey-text);
+    border: none;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+.btn-carrito:hover {
+    color: var(--primary-color);
+}
+.btn-carrito .badge {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 0.65rem;
+    padding: 0.2em 0.4em;
+    border-radius: 50%;
+}
+
+/* Boton de Ingresar  */
+.btn-ingresar {
+    background: var(--primary-gradient);
+    color: white !important;
+    border: none;
+    border-radius: 50px;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+.btn-ingresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.3);
+}
+
+/* --- Barra de Navegacion Inferior --- */
+.main-nav {
+    border-top: 1px solid #e9ecef;
+}
+
+.nav-link-main {
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.nav-link-main:hover, .nav-link-main.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.btn-ayuda {
+    background: #3871c1;
+    color: #f0f4f8;
+    border: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-ayuda:hover {
+    background-color: #e9ecef;
+    color: var(--dark-text);
+}
+
+/* ---- Footer ---- */
+.main-footer {
+    background-color: var(--footer-bg); 
+    font-size: 0.9rem;
+}
+
+.main-footer h6 {
+    color: var(--dark-text);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.main-footer ul a {
+    text-decoration: none;
+    color: var(--grey-text); 
+    font-weight: 400; 
+    transition: color 0.2s;
+}
+
+.main-footer ul a:hover {
+    color: var(--primary-color);
+}
+
+
+.btn-footer-ayuda {
+    background: #36ab9c;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.btn-footer-ayuda:hover {
+    color: white;
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.3);
+}
+
+.btn-footer-arrepentimiento {
+    background-color: #ffffff;
+    border: 1px solid var(--light-grey-border);
+    color: var(--grey-text);
+    border-radius: 50px;
+    font-weight: 500;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+.btn-footer-arrepentimiento:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+}
+
+.afiliado-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 1.25rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    border: 1px solid #e9ecef; 
+}
+
+.afiliado-box h6 {
+    font-size: 0.8rem;
+    color: var(--dark-text);
+}
