@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    const headerURL = 'pages/header.html';
-    const footerURL = 'pages/footer.html';
+    const headerURL = '/pages/header.html';
+    const footerURL = '/pages/footer.html';
 
     const loadComponent = (url, elementId) => {
         fetch(url)
