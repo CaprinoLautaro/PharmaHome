@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PharmaHome Pago</title>
-    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/pago.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body>
     <header>
 
     </header>
 
+
+
+
     <main class="contenedor-principal-pago">
         <section class="barra-progreso">
             <div class="paso activo">
-                <span class="circulo"></span>
+                <span class="circulo">
+                    <div class="icono-svg" data-src="/assets/Carrito.svg"></div>
+                </span>
                 <span class="etiqueta">Carrito</span>
             </div>
             <div class="paso">
-                <span class="circulo"></span>
+                <span class="circulo">
+                    <div class="icono-svg" data-src="/assets/Tarjeta.svg"></div>
+                </span>
+
                 <span class="etiqueta">Pago</span>
             </div>
             <div class="paso">
-                <span class="circulo"></span>
+                <span class="circulo">
+                    <div class="icono-svg" data-src="/assets/Camion.svg"></div>                   
+                </span>
+
                 <span class="etiqueta">Envio</span>
             </div>
             <div class="paso">
-                <span class="circulo"></span>
+                <span class="circulo">
+                    <div class="icono-svg" data-src="/assets/Check.svg"></div>
+                </span>
                 <span class="etiqueta">Confirmado</span>
             </div>
         </section>
@@ -44,7 +61,7 @@
                     <h3 class="titulo-grupo">Venta Libre</h3>
 
                     <div class="item-producto">
-                            <img src="/assets/IBU-400-X-20-COMP.png" alt="Ibuprofeno 400mg" class="imagen-producto">
+                        <img src="/assets/IBU-400-X-20-COMP.png" alt="Ibuprofeno 400mg" class="imagen-producto">
                         <div class="info-producto">
                             <p class="nombre-producto">Ibuprofeno 400mg</p>
                             <p class="cantidad-producto">Cantidad: 2</p>
@@ -57,7 +74,7 @@
                     </div>
 
                     <div class="item-producto">
-                            <img src="/assets/Tafirol.png" alt="Tafirol plus" class="imagen-producto">
+                        <img src="/assets/Tafirol.png" alt="Tafirol plus" class="imagen-producto">
                         <div class="info-producto">
                             <p class="nombre-producto">Tafirol plus</p>
                             <p class="cantidad-producto">Cantidad: 2</p>
@@ -72,7 +89,7 @@
 
                 <div class="grupo-productos">
                     <h3 class="titulo-grupo">Recetados</h3>
-                    
+
                     <div class="item-producto">
                         <img src="/assets/Amoxidal.jpg" alt="Amoxidal 500mg" class="imagen-producto">
                         <div class="info-producto">
@@ -85,35 +102,41 @@
                         <button class="boton-eliminar">×</button>
                     </div>
                 </div>
-
             </section>
+
 
             <section class="caja-resumen">
                 <h2 class="titulo-seccion">Resumen</h2>
-                
+
                 <div class="detalles-resumen">
                     <p>Ibuprofeno 400mg x2 <span>$5000</span></p>
                     <p>Tafírol Plus x2 <span>$6000</span></p>
                     <p>Amoxidal 500mg x1 <span>$6000</span></p>
                     <p>Des-Pami: <span class="descuento">-$5500</span></p>
                 </div>
-                
+
                 <div class="totales-resumen">
                     <p>Subtotal: <span>$11500</span></p>
                     <p>Envío: <span>$500</span></p>
                 </div>
-                
+
                 <div class="total-a-pagar">
                     <p>TOTAL A PAGAR <span>$12.000</span></p>
                 </div>
-                
-                <button class="boton-continuar">Continuar a Envío</button>
+
+                <button class="boton-continuar">Continuar a Pago</button>
             </section>
-        </div>
+
+            <section class="pago-eleccion">
+                
+            </section>
+
+        
     </main>
 
     <footer>
 
     </footer>
 </body>
+<script src="/js/pago.js"></script>
 </html>
