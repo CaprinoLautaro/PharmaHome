@@ -1,116 +1,252 @@
- body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            color: #0d6efd;
-        }
-        .step-indicator {
-            display: flex;
-            justify-content: space-between;
-            margin: 2rem 0;
-            position: relative;
-        }
-        .step-indicator::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #dee2e6;
-            z-index: 1;
-        }
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        .step-circle {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: #dee2e6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #6c757d;
-        }
-        .step.active .step-circle {
-            background-color: #0d6efd;
-            color: white;
-        }
-        .step.completed .step-circle {
-            background-color: #198754;
-            color: white;
-        }
-        .step-label {
-            font-size: 0.875rem;
-            color: #6c757d;
-        }
-        .step.active .step-label {
-            color: #0d6efd;
-            font-weight: bold;
-        }
-        .step.completed .step-label {
-            color: #198754;
-        }
-        .section {
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-        .card {
-            border: none;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            margin-bottom: 1.5rem;
-        }
-        .card-header {
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #dee2e6;
-            font-weight: bold;
-        }
-        .product-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-        .product-item:last-child {
-            border-bottom: none;
-        }
-        .total-section {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 0.375rem;
-            margin-top: 1rem;
-        }
-        .footer-section {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #dee2e6;
-        }
-        .footer-column {
-            margin-bottom: 1.5rem;
-        }
-        .footer-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        .confirmation-icon {
-            font-size: 4rem;
-            color: #198754;
-            margin-bottom: 1rem;
-        }
-        .btn-continue {
-            background-color: #0d6efd;
-            color: white;
-            padding: 0.75rem 2rem;
-            font-weight: bold;
-        }
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('/assets/FondoPharmahome.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    min-height: 100vh;
+
+    min-height: 100vh; 
+    color: #333;
+} 
+
+/* Contenedor principal que centra y limita el ancho del contenido */
+.contenedor-principal-pago {
+    width: 90%; 
+    max-width: 1050px; /* Un poco más ancho para el diseño de dos columnas */
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.titulo-seccion {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.barra-progreso {
+    display: flex; 
+    justify-content: space-between; 
+    position: relative;
+    padding: 40px 0;
+    margin-bottom: 30px;
+}
+
+/* La línea que conecta los círculos */
+.barra-progreso::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%; /* Ajuste para empezar después del primer círculo */
+    right: 10%; /* Ajuste para terminar antes del último círculo */
+    height: 3px;
+    background-color: #ddd; /* Línea gris inactiva */
+    z-index: 1; /* Detrás de los círculos */
+    transform: translateY(-50%);
+}
+
+.paso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    width: 25%; 
+    z-index: 2;
+    color: #888;
+    font-size: 15px;
+}
+
+.circulo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para el paso actual (clase 'activo') */
+.paso.activo .circulo {
+    background-color: #7B68EE; /* Color morado */
+    border-color: #7B68EE;
+}
+
+.paso.activo .etiqueta {
+    color: #333;
+    font-weight: bold;
+}
+
+.contenedor-contenido {
+    display: flex; 
+    gap: 30px; /* Espacio entre las dos columnas */
+    align-items: flex-start; /* Alinea las columnas en la parte superior */
+}
+
+/* Estilo común de las "tarjetas" (cards) */
+.detalles-carrito,
+.caja-resumen {
+    background-color: #fff; 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada */
+}
+
+.detalles-carrito {
+    flex: 2; /* Ocupa el doble de espacio que la columna derecha */
+    min-width: 50%; /* Asegura un ancho mínimo en el layout */
+}
+
+.caja-resumen {
+    flex: 1; /* Ocupa un tercio del espacio total */
+    min-width: 300px;
+}
+
+.titulo-grupo {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #666;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+.item-producto {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-producto:last-child {
+    border-bottom: none; 
+}
+
+.imagen-producto {
+    width: 60px;
+    height: 60px;
+    object-fit: contain; 
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 2px;
+}
+
+.info-producto {
+    flex-grow: 1; 
+}
+
+.nombre-producto {
+    font-weight: 600;
+}
+
+.cantidad-producto {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.precio-producto {
+    text-align: right;
+    margin-left: 20px;
+    font-weight: bold;
+    min-width: 90px;
+}
+
+.precio-unidad {
+    font-size: 0.8em;
+    color: #aaa;
+    font-weight: normal;
+}
+
+.boton-eliminar {
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    color: #ccc;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.boton-eliminar:hover {
+    color: #e74c3c;
+}
+
+.detalles-resumen p,
+.totales-resumen p {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.95em;
+}
+
+.detalles-resumen {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.totales-resumen {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.descuento {
+    color: #e74c3c; /* Rojo para el descuento */
+    font-weight: 500;
+}
+
+/* Estilo del recuadro de TOTAL A PAGAR */
+.total-a-pagar {
+    background-color: #f0f0ff; /* Fondo muy claro para resaltar */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0ff; /* Borde suave */
+}
+
+.total-a-pagar p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.total-a-pagar span {
+    font-size: 1.5em;
+    color: #1abc9c; /* Color de énfasis (verde/turquesa) */
+    font-weight: bold;
+}
+
+/* Estilo del botón principal de acción */
+.boton-continuar {
+    width: 100%;
+    padding: 15px;
+    /* Degradado de morado a verde para coincidir con el diseño */
+    background: linear-gradient(90deg, #7B68EE 0%, #1abc9c 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 10px rgba(123, 104, 238, 0.4);
+}
+
+.boton-continuar:hover {
+    opacity: 0.9;
+}
