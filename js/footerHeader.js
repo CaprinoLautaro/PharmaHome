@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    const headerURL = 'pages/header.html';
-    const footerURL = 'pages/footer.html';
+    const headerURL = '/pages/header.html';
+    const footerURL = '/pages/footer.html';
+
 
     const loadComponent = (url, elementId) => {
         fetch(url)
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById(elementId).innerHTML = html;
             })
             .catch(error => {
-                document.getElementById(elementId).innerHTML = `<p>Error al cargar esta sección.</p>`;
+                document.getElementById(elementId).innerHTML = `<p style="text-align:center; color: red;">Error al cargar esta sección.</p>`;
             });
     };
 
