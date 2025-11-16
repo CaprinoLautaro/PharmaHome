@@ -22,6 +22,7 @@ body {
     min-height: 100vh;
 }
 
+
 .contenedor-principal-pago {
     width: 90%;
     max-width: 1150px;
@@ -86,7 +87,10 @@ body {
 .paso.activo .icono-svg svg {
     stroke: var(--secondary-color);
     fill: var(--secondary-color);
+    color: var(--secondary-color);
 }
+
+
 
 .etiqueta {
     font-size: 0.9rem;
@@ -110,6 +114,10 @@ body {
     align-self: center;
 }
 
+.linea.activo{
+    background-color: var(--secondary-color);
+}
+
 
 
 /* =======================================================================================
@@ -126,13 +134,14 @@ body {
     TARJETA DEL CARRITO
    ======================================================================================= */
 
-.detalles-carrito {
+.detalles-carrito{
     flex: 2;
     background: white;
     border-radius: 14px;
     padding: 30px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
+
 
 .titulo-seccion {
     font-size: 1.4rem;
@@ -288,4 +297,203 @@ body {
 .boton-continuar:hover {
     transform: scale(1.02);
     opacity: 0.92;
+}
+
+/* ============================
+   CONTENEDOR PRINCIPAL DEL PAGO
+=============================== */
+
+.metodo-pago {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+
+    flex: 2;
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+/* ============================
+   TARJETAS DE MÉTODO DE PAGO
+=============================== */
+
+.card-pago {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card-pago:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Títulos */
+.titulo-pago {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+/* Imágenes dentro de las tarjetas */
+.card-pago img {
+    min-height: 246px;
+    width: 70%;
+    max-width: 230px;
+    margin: 15px auto;
+    border-radius: 8px;
+    background: #f7f7f7;
+    padding: 15px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Botones */
+.card-pago .boton {
+    margin-top: 20px;
+    padding: 12px;
+    width: 80%;
+    border: none;
+    border-radius: 25px;
+    background: var(--primary-gradient);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(140, 82, 255, 0.3);
+    transition: opacity 0.3s, transform 0.1s;
+}
+
+.card-pago .boton:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* ============================
+    SECCIÓN DE PAGO CON TARJETA
+=============================== */
+
+.pago-tarjeta {
+    display: flex;
+    gap: 40px;
+    flex: 2;
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+/* Título */
+.titulo-tarjeta {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+}
+
+/* Columna izquierda: títulos + radios + imagen */
+.sector-tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+}
+
+/* Radios Visa / MasterCard */
+.elegir-tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.elegir-tarjeta input {
+    transform: scale(1.3);
+}
+
+/* Imagen grande de la tarjeta */
+.sector-tarjeta img {
+    width: 330px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    background: #f7f7f7;
+    padding: 10px;
+}
+
+/* Formulario a la derecha */
+.formulario-pago {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Inputs */
+.formulario-pago input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 14px;
+    font-size: 1rem;
+    transition: .2s ease;
+}
+
+.formulario-pago input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 6px rgba(140, 82, 255, 0.25);
+}
+
+/* Etiquetas */
+.formulario-pago label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+/* Fila doble para expiración + CVC */
+.fila-doble {
+    display: flex;
+    gap: 15px;
+}
+
+.fila-doble div {
+    flex: 1;
+}
+
+/* Botón */
+.boton {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(140, 82, 255, 0.3);
+    transition: .25s ease;
+}
+
+.boton:hover {
+    transform: scale(1.02);
+    opacity: .92;
+}
+
+/* Clase para ocultar */
+.desactivado {
+    display: none;
 }

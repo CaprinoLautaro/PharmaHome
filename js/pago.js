@@ -5,3 +5,4 @@ document.querySelectorAll('.icono-svg').forEach(async el => {
     const svgText = await response.text();
     el.innerHTML = svgText;
 });
+

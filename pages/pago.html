@@ -32,8 +32,8 @@
                 </span>
                 <span class="etiqueta">Carrito</span>
             </div>
-            <div class="linea"></div>
-            <div class="paso">
+            <div class="linea activo"></div>
+            <div class="paso activo">
                 <span class="circulo">
                     <div class="icono-svg" data-src="/assets/Tarjeta.svg"></div>
                 </span>
@@ -56,7 +56,7 @@
         </section>
 
         <div class="contenedor-contenido">
-            <section class="detalles-carrito">
+            <section class="detalles-carrito desactivado">
                 <h2 class="titulo-seccion">Tu Carrito</h2>
 
                 <div class="grupo-productos">
@@ -106,8 +106,59 @@
                 </div>
             </section>
 
+            <section class="metodo-pago desactivado">
+                <div class="card-pago">
+                    <h3 class="titulo-pago">Mercado Pago</h3>
+                    <img src="/assets/mercadopago.png" alt="Mercado pago imagen">
+                    <button class="boton booton-Mercado">Quiero este</button>
+                </div>
+                <div class="card-pago">
+                    <h3 class="titulo-pago">Tarjeta</h3>
+                    <img src="/assets/tarjeta.jpg" alt="">
+                    <button class="boton booton-Tarjeta">Quiero este</button>
+                </div>
+            </section>
 
-            <section class="caja-resumen">
+            <section class="pago-tarjeta">
+
+                        <h2 class="titulo-tarjeta">Tarjeta: </h2>
+
+                <div class="sector-tarjeta">
+
+                    <div class="elegir-tarjeta">
+                        <input type="radio" id="visa" name="opcion-tarjeta" checked>
+                        <label for="visa">Visa</label>
+
+                        <input type="radio" id="masterCard" name="opcion-tarjeta">
+                        <label for="masterCard">MasterCard</label>
+                    </div>
+
+                    <img src="/assets/TarjetaCredito.avif" alt="Imagen de tarjeta de crédito">
+                </div>
+
+                <div class="formulario-pago">
+                    <form>
+                        <label for="nro-tarjeta">Nro de tarjeta: </label>
+                        <input type="text" id="nro-tarjeta" placeholder="1234 5678 9101 1121">
+                        <label for="nya">Nombre y apellido</label>
+                        <input type="text" id="nya" placeholder="Julian Alvarez">
+                        <div class="fila-doble">
+                            <div>
+                                <label for="expiracion">Fecha de expiración</label>
+                                <input type="text" id="expiracion" placeholder="10/29...">
+                            </div>
+                            <div>
+                                <label for="cvc">CVC</label>
+                                <input type="text" id="cvc" placeholder="123...">
+                            </div>
+                        </div>
+                    </form>
+                    <button class="boton">Continuar</button>
+                </div>
+
+            </section>
+
+            <section class="caja-resumen desactivado">
                 <h2 class="titulo-seccion">Resumen</h2>
 
                 <div class="detalles-resumen">
