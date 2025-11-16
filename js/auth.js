@@ -18,7 +18,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar mensaje de registro exitoso si viene del registro
     showRegistrationSuccess();
+
+    // Protección de páginas para acceso directo
+    checkPageProtection();
 });
+
+function checkPageProtection() {
+    // Lista de páginas que requieren autenticación
+    const protectedPages = [
+        'misRecetas.html'
+    ];
+
+    // Obtener el nombre del archivo actual
+    const currentPage = window.location.pathname.split('/').pop();
+
+    // Verificar si la página actual está protegida
+    if (protectedPages.includes(currentPage)) {
+        const sessionData = JSON.parse(localStorage.getItem('pharmahome_session') || '{}');
+
+        if (!sessionData.isLoggedIn) {
+            // Redirigir al login
+            window.location.href = 'login.html';
+        }
+    }
+}
 
 function handleRegister(e) {
     e.preventDefault();
@@ -54,7 +77,7 @@ function handleRegister(e) {
         id: generateId(),
         nombreCompleto,
         email,
-        password, // En una aplicación real, esto debería estar encriptado
+        password,
         cuil,
         tramiteDNI,
         fechaRegistro: new Date().toISOString()
@@ -64,7 +87,7 @@ function handleRegister(e) {
     existingUsers.push(newUser);
     localStorage.setItem('pharmahome_users', JSON.stringify(existingUsers));
 
-    // ✅ CAMBIO: Redirigir a la página de login en lugar de iniciar sesión automáticamente
+    // Redirigir a la página de login
     alert('¡Registro exitoso! Ahora puedes iniciar sesión con tus credenciales.');
     window.location.href = 'login.html?registro=exitoso';
 }
@@ -149,11 +172,17 @@ function updateUIForLoggedInUser(userName) {
         loginButton.id = 'userDropdown';
 
         // Agregar evento para cerrar sesión
-        document.getElementById('logoutBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            logoutUser();
-        });
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                logoutUser();
+            });
+        }
     }
+
+    // ✅ ACTUALIZAR TAMBIÉN EL ENLACE "MIS RECETAS"
+    updateMisRecetasLink(true);
 }
 
 function updateUIForLoggedOutUser() {
@@ -161,13 +190,31 @@ function updateUIForLoggedOutUser() {
 
     if (loginButton) {
         loginButton.innerHTML = '<i class="fa-regular fa-circle-user me-2"></i>Ingresar';
-        loginButton.href = 'pages/login.html';
+        loginButton.href = '/pages/login.html';
 
         // Remover características de dropdown
         loginButton.classList.remove('dropdown-toggle');
         loginButton.removeAttribute('data-bs-toggle');
         loginButton.removeAttribute('aria-expanded');
         loginButton.removeAttribute('id');
+    }
+
+    // ✅ ACTUALIZAR TAMBIÉN EL ENLACE "MIS RECETAS"
+    updateMisRecetasLink(false);
+}
+
+// ✅ NUEVA FUNCIÓN: Actualizar el enlace de Mis Recetas
+function updateMisRecetasLink(isLoggedIn) {
+    const misRecetasLink = document.querySelector('a[href="/pages/login.html"] .fa-receipt')?.closest('a');
+
+    if (misRecetasLink) {
+        if (isLoggedIn) {
+            // Usuario logueado - apuntar a Mis Recetas
+            misRecetasLink.href = '/pages/misRecetas.html';
+        } else {
+            // Usuario NO logueado - apuntar a Login
+            misRecetasLink.href = '/pages/login.html';
+        }
     }
 }
 
