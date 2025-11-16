@@ -1,0 +1,449 @@
+:root {
+    /* Paleta */
+    --primary-color: #8c52ff; 
+    --secondary-color: #00bf63; 
+    --primary-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+
+    --dark-text: #212529;
+    --light-text: #ffffff;
+    --star-color: #f8b400; 
+    --bg-overlay-color: rgba(248, 249, 250, 0.85); 
+    --main-bg-color: #e9eef7; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--main-bg-color);
+    background-image: url('/img/imagen_pareja.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--dark-text);
+}
+
+
+
+/* ---- CONTENIDO PRINCIPAL ---- */
+.main-content-wrapper {
+    background-color: var(--bg-overlay-color);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.primera-vez-section h1 {
+    color: var(--dark-text);
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+.btn-ayuda-main {
+    background: var(--primary-gradient);
+    color: var(--light-text);
+    padding: 0.8rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-ayuda-main:hover {
+    color: var(--light-text);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(140, 82, 255, 0.3);
+}
+
+/* ---- TARJETA GUÍA DE USUARIOS ---- */
+.guia-usuarios-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    max-width: 400px;
+    width: 100%;
+}
+
+.subtitulo-guia {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.step-item:last-child {
+    margin-bottom: 0;
+}
+
+.step-item .fa-square-check {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+/* ---- SECCIÓN FARMACIAS DESTACADAS Y CARRUSEL ---- */
+.farmacias-destacadas-section {
+    position: relative; 
+}
+
+.farmacia-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+    margin: 0 10px; 
+}
+
+.farmacia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.rating-stars {
+    color: var(--star-color);
+}
+
+.btn-ver-tienda {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.6rem 2rem;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+.btn-ver-tienda:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ---- SECCIÓN FARMACIAS DESTACADAS Y CARRUSEL ---- */
+.farmacias-destacadas-section {
+    position: relative; 
+}
+
+.farmacia-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+    margin: 0 10px; 
+}
+
+
+.farmacia-card .card-img-top {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    object-position: center; 
+}
+
+
+.farmacia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.rating-stars {
+    color: var(--star-color);
+}
+
+.btn-ver-tienda {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.6rem 2rem;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+.btn-ver-tienda:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Estilos para las flechas del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-control-prev {
+    left: -20px;
+}
+.carousel-control-next {
+    right: -20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none; 
+}
+.carousel-control-prev .fa-chevron-left,
+.carousel-control-next .fa-chevron-right {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+
+/* PUNTOS DEL CARRUSEL */
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    margin: 0 5px;
+}
+
+.carousel-indicators .active {
+    background-color: var(--secondary-color);
+}
+
+/* ---- MODAL DE AYUDA ---- */
+
+.modal-backdrop.show {
+    opacity: 0.8; 
+}
+
+.modal.fade .modal-dialog {
+    transform: scale(0.9); 
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+.guia-modal-content {
+    background-color: #f0f2f5;
+    border-radius: 25px;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.guia-modal-content .modal-header {
+    position: relative;
+    height: 30px; 
+}
+
+.guia-modal-content .btn-close-custom {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(217, 83, 79, 0.5);
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.guia-modal-content .btn-close-custom:hover {
+    transform: scale(1.1);
+}
+
+.guia-modal-content .modal-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.guia-steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.guia-step {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+}
+
+.guia-step-icon {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cce9e4; 
+    color: #164941; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.guia-step-text strong {
+    display: block;
+    color: var(--dark-text);
+}
+
+.guia-step-text small {
+    color: #6c757d;
+}
+
+.dudas-title {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.btn-faq {
+    background: var(--primary-gradient);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 2.5rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-faq:hover {
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
+}
+
+
+
+
+/* ---- ESTILOS PÁGINA DE AYUDA (FAQ) ---- */
+
+.faq-accordion .accordion-item {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.faq-accordion .accordion-button {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    color: var(--dark-text);
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* Estilo del botón cuando el acordeón está abierto */
+.faq-accordion .accordion-button:not(.collapsed) {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.15);
+    border-bottom: 1px solid #ddd;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Quitar el ícono de flecha por defecto de Bootstrap */
+.faq-accordion .accordion-button::after {
+    display: none;
+}
+
+.faq-accordion .accordion-button i {
+    transition: transform 0.3s ease;
+    color: #999;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) i {
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
+
+.faq-accordion .accordion-body {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 1.5rem;
+    color: #555;
+}
+
+
+/* ---- SECCIÓN DE CONTACTO ADICIONAL ---- */
+.contact-help-box {
+    border: 2px solid #a2e4d6; 
+    border-radius: 20px;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: #a2e4d6;
+    margin-bottom: 1rem;
+}
+
+.contact-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+.contact-link:hover {
+    color: #6a34cc;
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid #dee2e6;
+    }
+}
+
+.btn-volver-inicio {
+    background: var(--primary-gradient);
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-volver-inicio:hover {
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
+}
+
+
+

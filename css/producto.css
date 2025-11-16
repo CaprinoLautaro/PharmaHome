@@ -1,0 +1,207 @@
+
+
+.product-detail-container {
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.product-gallery {
+    background-color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-details {
+    padding: 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    border: 4px solid transparent;
+    background-image: 
+        linear-gradient(#f8f9fa, #f8f9fa), 
+        var(--primary-gradient);          
+    background-origin: border-box;
+    background-clip: padding-box, border-box; 
+    margin-left: -4px;
+}
+
+.venta-recetada{
+     background-color: #e6e6f9; color: #5470FF;width: 50%;
+}
+
+
+.product-breadcrumbs { 
+    font-size: 0.85rem; 
+    color: var(--grey-text);
+     margin-bottom: 1rem; 
+}
+
+
+.product-breadcrumbs a { 
+    color: var(--grey-text); 
+    text-decoration: none; 
+}
+
+.product-breadcrumbs a:hover { 
+    color: var(--primary-color); 
+}
+
+.main-image-container { 
+    position: relative; 
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 350px; 
+}
+
+.main-product-image { 
+    max-width: 100%; 
+    max-height: 400px; 
+    object-fit: contain; 
+    border-radius: 15px; 
+}
+
+.gallery-arrow { position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #eee; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    color: var(--primary-color); 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    transition: all 0.2s ease-in-out; 
+}
+
+.gallery-arrow:hover { 
+    background-color: white; 
+    transform: translateY(-50%) scale(1.1); 
+}
+
+.gallery-arrow.prev { left: 15px; }
+
+.gallery-arrow.next { right: 15px; }
+
+.thumbnail-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 1rem; 
+}
+
+.thumbnail-image { 
+    width: 70px; height: 70px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    border: 2px solid transparent; 
+    cursor: pointer; 
+    transition: border-color 0.3s; 
+}
+.thumbnail-image:hover { border-color: var(--light-grey-border); }
+.thumbnail-image.active { border-color: var(--primary-color); }
+
+.product-title { font-size: 2.5rem; font-weight: 700; color: var(--dark-text); margin-bottom: 0.25rem; }
+.product-subtitle { font-size: 0.9rem; font-weight: 700; padding: 0.2rem 0.8rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; }
+.product-subtitle.venta-libre { background-color: #e6f9f0; color: var(--secondary-color); width: 21%; }
+.product-description { color: var(--grey-text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; border-bottom: 1px solid var(--light-grey-border); padding-bottom: 2rem; }
+
+.info-item { display: flex; flex-direction: column; }
+.info-label { font-size: 0.9rem; color: var(--grey-text); margin-bottom: 0.25rem; }
+.info-value { font-size: 1.5rem; font-weight: 700; color: #004952;}
+.quantity-control { display: flex; flex-direction: column; }
+
+.quantity-selector { display: flex; align-items: center; background-color: white; border: 1px solid var(--light-grey-border); border-radius: 50px; width: fit-content; color: #004952;}
+.btn-quantity { border: none; background-color: transparent; font-size: 1.5rem; font-weight: 300; width: 40px; height: 40px; color: var(--primary-color); }
+.quantity-selector .quantity-value { font-size: 1.2rem; font-weight: 500; padding: 0 1rem; }
+
+.cost-summary { margin-top: 1rem; border-top: 1px solid var(--light-grey-border); padding-top: 1rem; }
+.cost-item { display: flex; justify-content: space-between; font-size: 1rem; color: var(--grey-text); margin-bottom: 0.5rem; }
+.cost-item.total { font-size: 1.2rem; font-weight: 700; color: var(--dark-text); margin-top: 0.5rem; }
+.total-price { font-size: 2rem; color: #004952;}
+
+.btn-add-to-cart { background: var(--primary-gradient); color: white; font-size: 1.1rem; font-weight: 700; padding: 1rem; border-radius: 15px; border: none; transition: all 0.3s ease; }
+.btn-add-to-cart:hover { color: white; transform: scale(1.02); box-shadow: 0 5px 15px rgba(140, 82, 255, 0.4); }
+
+.pharmacy-selector-container .form-label {
+    font-size: 0.9rem;
+    color: var(--grey-text);
+}
+
+.custom-select-wrapper {
+    position: relative;
+}
+
+.custom-select-trigger {
+    background-color: #fff;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 12px; 
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.custom-select-wrapper.open .custom-select-trigger {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(142, 84, 255, 0.2);
+}
+
+.custom-select-trigger i {
+    transition: transform 0.3s ease;
+}
+
+.custom-select-wrapper.open .custom-select-trigger i {
+    transform: rotate(180deg);
+}
+
+
+.custom-select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px); 
+    left: 0;
+    right: 0;
+    z-index: 10;
+    
+    padding: 0; 
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white), 
+        var(--primary-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.custom-select-wrapper.open .custom-select-options {
+    display: block;
+}
+
+.custom-select-option {
+    padding: 0.9rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #004952; 
+    transition: background-color 0.2s ease;
+}
+
+.custom-select-option:nth-child(odd) {
+    background-color: #f8f9fa; 
+}
+.custom-select-option:nth-child(even) {
+    background-color: #ffffff; 
+}
+
+.custom-select-option:hover {
+    background-color: #eef2ff; 
+}
