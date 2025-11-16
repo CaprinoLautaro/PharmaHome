@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/registrate.css">
+    <link rel="stylesheet" href="../css/base.css">
+
+
+    <title>Iniciar Sesión - PharmaHome</title>
+
+</head>
+
+<body>
+<header id="header"></header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <!-- Mensaje de registro exitoso -->
+            <div id="registroExitoso" class="alert alert-success d-none">
+                <i class="fas fa-check-circle me-2"></i>
+                ¡Registro exitoso! Ahora puedes iniciar sesión con tus credenciales.
+            </div>
+
+            <form class="form-container" id="loginForm">
+
+                <h1 class="text-center">Iniciar Sesión</h1>
+
+                <div class="mb-4">
+                    <label for="loginEmail" class="form-label fw-medium">Correo electrónico</label>
+                    <input
+                            type="email"
+                            class="form-control custom-input"
+                            id="loginEmail"
+                            placeholder="EJ: juan@ejemplo.com"
+                            required
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <label for="loginPassword" class="form-label fw-medium">Contraseña</label>
+                    <input
+                            type="password"
+                            class="form-control custom-input"
+                            id="loginPassword"
+                            placeholder="Ingresa tu contraseña"
+                            required
+                    >
+                </div>
+
+                <div class="d-grid gap-2 mb-4">
+                    <button type="submit" class="btn btn-gradient btn-lg">Iniciar Sesión</button>
+                </div>
+
+                <div class="text-center">
+                    <p>¿No tienes una cuenta? <a href="registrate.html">Regístrate aquí</a></p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer id="footer"></footer>
+
+</body>
+<script src="../js/footerHeader.js"></script>
+<script src="../js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

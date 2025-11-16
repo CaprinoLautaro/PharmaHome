@@ -1,25 +1,23 @@
-document.addEventListener("DOMContentLoaded", function() {
-    
-    const headerURL = '/pages/header.html';
-    const footerURL = '/pages/footer.html';
+document.addEventListener('DOMContentLoaded', function() {
+    // Cargar header
+    fetch('/pages/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
 
-    const loadComponent = (url, elementId) => {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error al cargar ${url}: ${response.statusText}`);
-                }
-                return response.text(); 
-            })
-            .then(html => {
-                document.getElementById(elementId).innerHTML = html;
-            })
-            .catch(error => {
-                document.getElementById(elementId).innerHTML = `<p>Error al cargar esta sección.</p>`;
-            });
-    };
+            // Después de cargar el header, verificar la sesión
+            // para actualizar el botón de usuario
+            if (typeof checkSession === 'function') {
+                checkSession();
+            }
+        })
+        .catch(error => console.error('Error cargando el header:', error));
 
-    loadComponent(headerURL, 'header');
-    loadComponent(footerURL, 'footer');
-
+    // Cargar footer
+    fetch('/pages/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
 });

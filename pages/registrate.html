@@ -4,96 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="../css/registrate.css">
     <link rel="stylesheet" href="../css/base.css">
-    
+
 
     <title>Registrate - PharmaHome</title>
-    
+
 </head>
 
 <body>
-    <header id="header"></header>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8 col-xl-7">
-                <form class="form-container">
-                    
-                    <h1 class="text-center">Registro de cuenta</h1>
+<header id="header"></header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+            <form class="form-container" id="registerForm">
 
-                    <div class="mb-4">
-                        <label for="nombreCompleto" class="form-label fw-medium">Nombre completo</label>
-                        <input 
-                            type="text" 
-                            class="form-control custom-input" 
+                <h1 class="text-center">Registro de cuenta</h1>
+
+                <div class="mb-4">
+                    <label for="nombreCompleto" class="form-label fw-medium">Nombre completo</label>
+                    <input
+                            type="text"
+                            class="form-control custom-input"
                             id="nombreCompleto"
                             placeholder="EJ: Juan Pablo Perez"
                             required
-                        >
-                    </div>
+                    >
+                </div>
 
-                    <div class="mb-4">
-                        <label for="cuil" class="form-label fw-medium">CUIL</label>
-                        <input 
-                            type="text" 
-                            class="form-control custom-input" 
+                <div class="mb-4">
+                    <label for="email" class="form-label fw-medium">Correo electrónico</label>
+                    <input
+                            type="email"
+                            class="form-control custom-input"
+                            id="email"
+                            placeholder="EJ: juan@ejemplo.com"
+                            required
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label fw-medium">Contraseña</label>
+                    <input
+                            type="password"
+                            class="form-control custom-input"
+                            id="password"
+                            placeholder="Mínimo 8 caracteres"
+                            minlength="8"
+                            required
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <label for="cuil" class="form-label fw-medium">CUIL</label>
+                    <input
+                            type="text"
+                            class="form-control custom-input"
                             id="cuil"
                             placeholder="EJ: 20-12344433-7"
                             pattern="\d{2}-\d{8}-\d{1}"
                             required
-                        >
-                    </div>
+                    >
+                </div>
 
-                    <div class="mb-4">
-                        <label for="tramiteDNI" class="form-label fw-medium">Número de trámite del DNI</label>
-                        <input 
-                            type="text" 
-                            class="form-control custom-input" 
+                <div class="mb-4">
+                    <label for="tramiteDNI" class="form-label fw-medium">Número de trámite del DNI</label>
+                    <input
+                            type="text"
+                            class="form-control custom-input"
                             id="tramiteDNI"
                             placeholder="EJ: 00181411185"
                             maxlength="11"
                             pattern="\d{11}"
                             required
-                        >
-                    </div>
+                    >
+                </div>
 
-                    <div class="d-grid gap-2 mb-4">
-                        <button type="submit" class="btn btn-gradient btn-lg">Registrarse</button>
-                    </div>
+                <div class="d-grid gap-2 mb-4">
+                    <button type="submit" class="btn btn-gradient btn-lg">Registrarse</button>
+                </div>
 
-                    <div class="info-box">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-md-5 text-center">
-                                <img 
-                                    src="../img/dni_ilustrativo_registrate.png" 
-                                    alt="DNI nuevo ilustrativo" 
+                <div class="text-center">
+                    <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                </div>
+
+                <div class="info-box">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img
+                                    src="../img/dni_ilustrativo_registrate.png"
+                                    alt="DNI nuevo ilustrativo"
                                     class="img-fluid"
-                                >
-                            </div>
-                            <div class="col-md-7">
-                                <p class="info-text mb-0">
-                                    En las últimas versiones del Documento Nacional de Identidad (DNI), podrá encontrar el número de
-                                    trámite único por persona.
-                                    <br><br>
-                                    <strong>Recuerde ingresar los 11 dígitos.</strong>
-                                </p>
-                            </div>
+                            >
+                        </div>
+                        <div class="col-md-7">
+                            <p class="info-text mb-0">
+                                En las últimas versiones del Documento Nacional de Identidad (DNI), podrá encontrar el número de
+                                trámite único por persona.
+                                <br><br>
+                                <strong>Recuerde ingresar los 11 dígitos.</strong>
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <footer id="footer"></footer>
+<footer id="footer"></footer>
 
-    <script src="../js/footerHeader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
+<script src="../js/footerHeader.js"></script>
+<script src="../js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>
