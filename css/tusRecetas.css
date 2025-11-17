@@ -1,0 +1,199 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url('../img/imagen_pareja.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal que crece para empujar el footer abajo */
+/* .container {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.form-container {
+    border: 4px solid transparent;
+    border-radius: 50px;
+    background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(90deg, #8c52ff, #00bf63) border-box;
+    background-color: #ffffffa8;
+    padding: 2.5rem;
+}
+
+.form-container h1 {
+    font-size: clamp(1.75rem, 5vw, 2.625rem);
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.custom-input {
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(90deg, #8c52ff, #00bf63) border-box;
+    background-clip: padding-box, border-box;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.custom-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(140, 82, 255, 0.25);
+}
+
+.btn-gradient {
+    background: linear-gradient(45deg, #8c52ff, #00bf63);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(140, 82, 255, 0.4);
+    color: white;
+}
+
+.info-box {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        border-radius: 30px;
+        padding: 1.5rem;
+    }
+
+    .info-box {
+        padding: 1rem;
+    }
+}
+ */
+/* ------------------------------
+   TARJETAS DE RECETAS
+--------------------------------*/
+
+.my-5{
+    background-color: rgba(255, 255, 255, 0.81);
+    padding: 40px;
+    border-radius: 50px;
+}
+
+/* Título superior */
+.titulo-recetas {
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+}
+
+/* Marco de gradiente */
+.receta-card {
+    border: 4px solid transparent;
+    border-radius: 40px;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(90deg, #8c52ff, #00bf63) border-box;
+    padding: 4px;
+}
+
+/* Fondo azul */
+.receta-content {
+    background: #1b63b6;
+    border-radius: 30px;
+    padding: 25px 30px;
+    color: white;
+    position: relative;
+}
+
+.receta-content p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.receta-content p i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.doctor {
+    font-size: 1.2rem;
+    margin-bottom: 20px !important;
+}
+
+/* Botón Comprar */
+.btn-comprar {
+    background-color: #00bf63;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.btn-comprar:hover {
+    opacity: 0.1;
+    transform: scale(1.03);
+}
+
+/* ----------------------------------------
+   RESPONSIVE
+---------------------------------------- */
+
+@media (max-width: 768px) {
+    .form-container {
+        border-radius: 30px;
+        padding: 1.5rem;
+    }
+
+    .info-box {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .receta-content {
+        padding: 20px;
+    }
+
+    .btn-comprar {
+        width: 100%;
+        text-align: center;
+    }
+}
