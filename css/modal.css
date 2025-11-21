@@ -1,11 +1,11 @@
 /* ---- MODAL DE AYUDA ---- */
 
 .modal-backdrop.show {
-    opacity: 0.8; 
+    opacity: 0.8;
 }
 
 .modal.fade .modal-dialog {
-    transform: scale(0.9); 
+    transform: scale(0.9);
     transition: transform 0.3s ease-out;
 }
 
@@ -18,12 +18,12 @@
     border-radius: 25px;
     border: none;
     padding: 1rem;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .guia-modal-content .modal-header {
     position: relative;
-    height: 30px; 
+    height: 30px;
 }
 
 .guia-modal-content .btn-close-custom {
@@ -77,8 +77,8 @@
     min-width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #cce9e4; 
-    color: #164941; 
+    background-color: #cce9e4;
+    color: #164941;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,3 +118,194 @@
     box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
 }
 
+
+
+.carrito-aside {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right .3s ease;
+    z-index: 2000;
+}
+
+.carrito-aside.open {
+    right: 0;
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#carrito-lista {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+    /* opcional: quita los puntos */
+}
+
+#carrito-lista li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Caja de cantidad */
+.cantidad-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botones + y - */
+.cantidad-box button {
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Hover para + y - */
+.cantidad-box button:hover {
+    background: #bcbcbc;
+}
+
+/* El número */
+.cantidad-box span {
+    font-size: 16px;
+    font-weight: bold;
+    justify-self: center;
+}
+
+.btn-eliminar {
+    background: red;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+    align-self: center;
+}
+
+.btn-eliminar:hover {
+    background: darkred;
+}
+
+.btn.btn-success.w-100 {
+    border-radius: 20px !important;
+    /* podés subirlo a 30px si querés más curva */
+}
+
+#cerrar-carrito {
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 1;
+}
+
+#cerrar-carrito:hover {
+    background-color: #bcbcbc;
+}
+
+#carrito-aside {
+    width: 350px;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px;
+    border-left: 2px solid #ddd;
+    transition: transform 0.35s ease-in-out;
+    transform: translateX(100%);
+    /* INICIALMENTE OCULTO */
+    scrollbar-width: none;
+}
+
+#carrito-aside.open {
+    transform: translateX(0);
+    /* EN PC SE ABRE DESDE LA DERECHA */
+}
+
+.carrito-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+/* ================================
+   ASIDE – VERSIÓN CELULAR
+================================ */
+@media (max-width: 768px) {
+    #carrito-aside {
+        width: 100%;
+        height: 50%;
+        top: -50%; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        border-left: none;
+        border-top: 2px solid #ddd;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        /* OCULTO HACIA ABAJO */
+    }
+
+    #carrito-aside.open {
+        transform: translateY(0);
+        /* SUBE COMO PANEL DESDE ABAJO */
+    }
+
+    #carrito-lista li {
+        list-style: none;
+        padding: 10px 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+     .carrito-footer {
+        position: static !important;
+    }
+
+}
+
+/* ================================
+   SCROLL INTERNO
+================================ */
+/* #carrito-lista {
+    max-height: 30vh;
+    overflow-y: auto;
+    padding-right: 10px;
+} */
+
+/* Alinear contenido del LI */
