@@ -2,13 +2,11 @@
     --primary-color: #8c52ff;
     --secondary-color: #00bf63;
     --primary-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-
     --dark-text: #212529;
     --grey-text: #6c757d;
     --light-grey-border: #ced4da;
     --footer-bg: #f0f4f8;
 }
-
 
 body {
     font-family: 'Inter', sans-serif;
@@ -18,14 +16,13 @@ body {
     background-attachment: fixed;
     background-position: center center;
     min-height: 100vh;
-
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
-
 
 .contenedor-principal-pago {
     width: 90%;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 40px auto;
     padding-bottom: 50px;
 }
@@ -33,68 +30,53 @@ body {
 /* =======================================================================================
     BARRA DE PROGRESO
    ======================================================================================= */
-
 .barra-progreso {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     margin: 40px 0 60px;
     padding: 1rem;
     background-color: #ffffff;
     border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-
-
 
 .paso {
     text-align: center;
     position: relative;
     z-index: 2;
-    width: 120px;
+    flex: 1;
 }
 
 .circulo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: white;
     border-radius: 50%;
     border: 3px solid #ced4da;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 10px;
     transition: 0.3s ease;
 }
 
-/* --- SVG dentro del círculo --- */
-.icono-svg svg {
-    width: 40px;
-    height: 40px;
-    stroke: currentColor;
-    fill: none;
-    transition: 0.3s ease;
+.circulo i {
+    font-size: 1.5rem;
+    color: #ced4da;
 }
 
-/* --- ESTADO ACTIVO DEL PASO --- */
 .paso.activo .circulo {
     border-color: var(--secondary-color);
-    background-color: white(0, 191, 99, 0.10);
-    transform: scale(1.05);
+    background-color: rgba(0, 191, 99, 0.1);
 }
 
-.paso.activo .icono-svg svg {
-    stroke: var(--secondary-color);
-    fill: var(--secondary-color);
+.paso.activo .circulo i {
     color: var(--secondary-color);
 }
 
-
-
 .etiqueta {
     font-size: 0.9rem;
-    margin-top: 10px;
     color: var(--grey-text);
     font-weight: 500;
 }
@@ -104,396 +86,481 @@ body {
     font-weight: 600;
 }
 
-/* Apartado de las lineas */
-
-.linea{
+.linea {
     flex-grow: 1;
     height: 2px;
     background-color: #ccc;
     margin: 0 10px;
-    align-self: center;
 }
 
-.linea.activo{
+.linea.activo {
     background-color: var(--secondary-color);
 }
 
-
-
 /* =======================================================================================
-    CONTENIDO PRINCIPAL (2 COLUMNAS)
+    SECCIONES PRINCIPALES
    ======================================================================================= */
-
-.contenedor-contenido {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-}
-
-/* =======================================================================================
-    TARJETA DEL CARRITO
-   ======================================================================================= */
-
-.detalles-carrito{
-    flex: 2;
+.seccion-paso {
     background: white;
     border-radius: 14px;
-    padding: 30px;
+    padding: 40px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
 }
-
 
 .titulo-seccion {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
     color: var(--dark-text);
-}
-
-/* Grupo de productos (Venta libre, Recetados) */
-.titulo-grupo {
-    font-size: 1.1rem;
-    color: var(--grey-text);
-    font-weight: 600;
-    margin: 25px 0 10px;
-    border-bottom: 1px solid #efefef;
-    padding-bottom: 6px;
-}
-
-/* Producto individual */
-.item-producto {
-    display: flex;
-    align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.item-producto:last-child {
-    border-bottom: none;
-}
-
-.imagen-producto {
-    width: 70px;
-    height: 70px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    object-fit: contain;
-    margin-right: 20px;
-    background: white;
-}
-
-.info-producto {
-    flex-grow: 1;
-}
-
-.nombre-producto {
-    font-weight: 600;
-}
-
-.cantidad-producto {
-    font-size: 0.85rem;
-    color: #777;
-}
-
-.precio-producto {
-    text-align: right;
-    min-width: 90px;
-}
-
-.precio-producto p {
-    margin: 0;
-}
-
-.precio-unidad {
-    font-size: 0.8rem;
-    color: #aaa;
-}
-
-/* Botón eliminar */
-.boton-eliminar {
-    border: none;
-    background: none;
-    font-size: 1.4rem;
-    color: #ccc;
-    margin-left: 12px;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.boton-eliminar:hover {
-    color: #e63946;
-}
-
-/* =======================================================================================
-    TARJETA DE RESUMEN
-   ======================================================================================= */
-
-.caja-resumen {
-    flex: 1;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    min-width: 280px;
-}
-
-.detalles-resumen p,
-.totales-resumen p {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-}
-
-.detalles-resumen {
-    border-bottom: 1px solid #eee;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-}
-
-.totales-resumen {
-    border-top: 1px solid #eee;
-    margin-top: 15px;
-    padding-top: 15px;
-}
-
-.descuento {
-    color: #e63946;
-    font-weight: 600;
-}
-
-.total-a-pagar {
-    background: var(--bg-resaltado);
-    border: 1px solid #d7d7ff;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin: 20px 0;
     text-align: center;
 }
 
-.total-a-pagar span {
-    font-size: 1.6rem;
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-
 /* =======================================================================================
-    BOTÓN CONTINUAR
+    PASO 1: MÉTODOS DE PAGO
    ======================================================================================= */
-
-.boton-continuar {
-    width: 100%;
-    background: var(--primary-gradient);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 5px 12px rgba(140, 82, 255, 0.35);
-    transition: 0.2s;
-}
-
-.boton-continuar:hover {
-    transform: scale(1.02);
-    opacity: 0.92;
-}
-
-/* ============================
-   CONTENEDOR PRINCIPAL DEL PAGO
-=============================== */
-
 .metodo-pago {
     display: flex;
-    justify-content: space-between;
-    gap: 25px;
-
-    flex: 2;
-    background: white;
-    border-radius: 14px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    margin-top: 20px;
+    gap: 30px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
-/* ============================
-   TARJETAS DE MÉTODO DE PAGO
-=============================== */
 
 .card-pago {
     flex: 1;
     background: #ffffff;
-    border-radius: 25px;
-    padding: 25px;
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    border: 2px solid #f0f0f0;
+    transition: 0.3s ease;
+    min-width: 250px;
 }
 
 .card-pago:hover {
+    border-color: var(--primary-color);
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Títulos */
 .titulo-pago {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 15px;
-}
-
-/* Imágenes dentro de las tarjetas */
-.card-pago img {
-    min-height: 246px;
-    width: 70%;
-    max-width: 230px;
-    margin: 15px auto;
-    border-radius: 8px;
-    background: #f7f7f7;
-    padding: 15px;
-    object-fit: contain;
-    display: block;
-}
-
-/* Botones */
-.card-pago .boton {
-    margin-top: 20px;
-    padding: 12px;
-    width: 80%;
-    border: none;
-    border-radius: 25px;
-    background: var(--primary-gradient);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(140, 82, 255, 0.3);
-    transition: opacity 0.3s, transform 0.1s;
-}
-
-.card-pago .boton:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
-}
-
-/* ============================
-    SECCIÓN DE PAGO CON TARJETA
-=============================== */
-
-.pago-tarjeta {
-    display: flex;
-    gap: 40px;
-    flex: 2;
-    background: white;
-    border-radius: 14px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    margin-top: 20px;
-    align-items: flex-start;
-}
-
-/* Título */
-.titulo-tarjeta {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--dark-text);
     margin-bottom: 20px;
 }
 
-/* Columna izquierda: títulos + radios + imagen */
-.sector-tarjeta {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 45%;
+.card-pago img {
+    width: 100%;
+    max-width: 180px;
+    height: 120px;
+    object-fit: contain;
+    margin: 20px auto;
+    border-radius: 8px;
+    background: #f7f7f7;
+    padding: 15px;
 }
 
-/* Radios Visa / MasterCard */
+/* =======================================================================================
+    FORMULARIO DE TARJETA
+   ======================================================================================= */
+.pago-tarjeta {
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.titulo-tarjeta {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--dark-text);
+}
+
+.contenido-tarjeta {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.sector-tarjeta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
 .elegir-tarjeta {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
 .elegir-tarjeta input {
     transform: scale(1.3);
+    margin-right: 8px;
 }
 
-/* Imagen grande de la tarjeta */
-.sector-tarjeta img {
-    width: 330px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    background: #f7f7f7;
-    padding: 10px;
+.imagen-tarjeta-container {
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* Formulario a la derecha */
-.formulario-pago {
-    width: 50%;
+.imagen-tarjeta {
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.datos-tarjeta-ejemplo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: space-between;
 }
 
-/* Inputs */
+.numero-tarjeta {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+.nombre-tarjeta {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fecha-tarjeta {
+    font-size: 1rem;
+    font-weight: 500;
+    align-self: flex-end;
+}
+
+.formulario-pago {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formulario-pago label {
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+    display: block;
+}
+
 .formulario-pago input {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ced4da;
-    border-radius: 14px;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
     font-size: 1rem;
-    transition: .2s ease;
+    transition: 0.3s ease;
+    box-sizing: border-box;
 }
 
 .formulario-pago input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 6px rgba(140, 82, 255, 0.25);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.1);
 }
 
-/* Etiquetas */
-.formulario-pago label {
-    font-size: 1rem;
+.fila-doble {
+    display: flex;
+    gap: 20px;
+}
+
+.fila-doble .campo {
+    flex: 1;
+}
+
+/* =======================================================================================
+    PASO 2: INFORMACIÓN DE ENVÍO
+   ======================================================================================= */
+.info-envio {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#form-envio {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
     font-weight: 600;
     color: var(--dark-text);
+    font-size: 1rem;
 }
 
-/* Fila doble para expiración + CVC */
-.fila-doble {
+.campo input,
+.campo select {
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.1);
+}
+
+.fila-triple {
     display: flex;
     gap: 15px;
 }
 
-.fila-doble div {
+.fila-triple .campo {
     flex: 1;
 }
 
-/* Botón */
-.boton {
-    margin-top: 20px;
-    width: 100%;
+.resumen-lateral {
+    max-width: 400px;
+    margin: 40px auto 0;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+}
+
+.resumen-lateral .titulo-seccion {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.detalles-resumen p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+    margin: 0;
+}
+
+.totales-resumen p {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    margin: 0;
+    font-weight: 600;
+}
+
+.total-a-pagar {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    margin-top: 15px;
+}
+
+.total-a-pagar p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.total-a-pagar span {
+    color: var(--secondary-color);
+}
+
+/* =======================================================================================
+    PASO 3: CONFIRMACIÓN
+   ======================================================================================= */
+.confirmacion-pedido {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.icono-confirmacion {
+    font-size: 5rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.icono-confirmacion i {
+    filter: drop-shadow(0 4px 8px rgba(0, 191, 99, 0.3));
+}
+
+.confirmacion-pedido h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+}
+
+.numero-orden {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 30px;
     padding: 15px;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: #f8f9ff;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-entrega {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.info-entrega p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* =======================================================================================
+    BOTONES
+   ======================================================================================= */
+.boton {
+    background: var(--primary-gradient);
     color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 12px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 5px 14px rgba(140, 82, 255, 0.3);
-    transition: .25s ease;
+    transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 160px;
 }
 
 .boton:hover {
-    transform: scale(1.02);
-    opacity: .92;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(140, 82, 255, 0.4);
 }
 
-/* Clase para ocultar */
+.boton-volver-inicio {
+    background: var(--primary-color);
+    margin-top: 30px;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+}
+
+.boton-continuar-envio {
+    margin-top: 30px;
+    width: 100%;
+    padding: 18px;
+    font-size: 1.2rem;
+}
+
+.botones-formulario {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.boton-secundario {
+    background: #6c757d !important;
+    border: 2px solid #6c757d !important;
+}
+
+.boton-secundario:hover {
+    background: #5a6268 !important;
+    border-color: #5a6268 !important;
+    transform: translateY(-2px);
+}
+
+/* =======================================================================================
+    UTILIDADES
+   ======================================================================================= */
 .desactivado {
-    display: none;
+    display: none !important;
+}
+
+.activo {
+    display: block !important;
+}
+
+/* =======================================================================================
+    RESPONSIVE
+   ======================================================================================= */
+@media (max-width: 968px) {
+    .metodo-pago {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card-pago {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .contenido-tarjeta {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .fila-doble,
+    .fila-triple {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-principal-pago {
+        width: 95%;
+        margin: 20px auto;
+    }
+    
+    .barra-progreso {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .linea {
+        width: 2px;
+        height: 40px;
+        margin: 0 auto;
+    }
+    
+    .seccion-paso {
+        padding: 25px 20px;
+    }
+    
+    .titulo-seccion {
+        font-size: 1.5rem;
+    }
+    
+    .confirmacion-pedido h1 {
+        font-size: 2rem;
+    }
 }

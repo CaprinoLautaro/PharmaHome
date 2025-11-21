@@ -210,7 +210,7 @@ function updateMisRecetasLink(isLoggedIn) {
     if (misRecetasLink) {
         if (isLoggedIn) {
             // Usuario logueado - apuntar a Mis Recetas
-            misRecetasLink.href = '/pages/misRecetas.html';
+            misRecetasLink.href = '/pages/tusRecetas.html';
         } else {
             // Usuario NO logueado - apuntar a Login
             misRecetasLink.href = '/pages/login.html';
