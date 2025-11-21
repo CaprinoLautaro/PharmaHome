@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nombre": "Tafirol plus® - 8 comprimidos",
+    "marca": "TAFIROL",
+    "farmacia": "Farmacia Villegas, San Justo",
+    "precio": "$24.000",
+    "img": "../img/tafirolplus.webp",
+    "descripcion": "Analgésico y antipirético indicado para dolores leves a moderados."
+  },
+  {
+    "id": 2,
+    "nombre": "Buscapina® - 20 comprimidos",
+    "marca": "BUSCAPINA",
+    "farmacia": "Central Oeste, Haedo",
+    "precio": "$9.525",
+    "img": "../img/buscapinaduo.jpg",
+    "descripcion": "Alivia cólicos y dolores abdominales de manera efectiva."
+  },
+  {
+    "id": 3,
+    "nombre": "Omeprazol® x 30 cápsulas",
+    "marca": "APOTEX",
+    "farmacia": "Central Oeste, Haedo",
+    "precio": "$3.629",
+    "img": "../img/omeprazol.jpg",
+    "descripcion": "Inhibidor de la bomba de protones para reducir acidez estomacal."
+  },
+  {
+    "id": 4,
+    "nombre": "Ibu 400® – 30 comprimidos",
+    "marca": "IBU 400",
+    "farmacia": "Farmacia Vilela, San Justo",
+    "precio": "$20.400",
+    "img": "../img/ibu400.jpg",
+    "descripcion": "Antiinflamatorio no esteroide (AINE) con efecto analgésico y antipirético."
+  },
+  {
+    "id": 5,
+    "nombre": "Alernix® x 20 cápsulas blandas",
+    "marca": "ALErNIX",
+    "farmacia": "Central Oeste, Haedo",
+    "precio": "$6.525",
+    "img": "../img/alernix.webp",
+    "descripcion": "Antihistamínico indicado para aliviar síntomas de alergia."
+  },
+  {
+    "id": 6,
+    "nombre": "Aziatop® x 14 comprimidos",
+    "marca": "AZIATOP",
+    "farmacia": "Farmacia Vilela, San Justo",
+    "precio": "$4.525",
+    "img": "../img/aziatop.jpg",
+    "descripcion": "Antibiótico de amplio espectro según indicación médica."
+  },
+  {
+    "id": 7,
+    "nombre": "Diclofenac® x 20 comprimidos",
+    "marca": "DICLOFENAC",
+    "farmacia": "Farmacia Vilela, San Justo",
+    "precio": "$3.870",
+    "img": "../img/diclofenac.webp",
+    "descripcion": "Antiinflamatorio y analgésico para dolores musculares y articulares."
+  },
+  {
+    "id": 8,
+    "nombre": "Diclofenac Gel x 45g",
+    "marca": "FITERMAN",
+    "farmacia": "Farmacia Vilela, San Justo",
+    "precio": "$2.950",
+    "img": "../img/diclofenac.jpg",
+    "descripcion": "Gel tópico antiinflamatorio para uso local en músculos y articulaciones."
+  }
+]
