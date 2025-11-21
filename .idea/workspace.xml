@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d84dde-2641-4c65-bb5c-f6dc92749753" name="Changes" comment="Arreglo de footer y header para que se vea igual en todas las paginas y linkeo entre paginas html">
+    <list default="true" id="d2d84dde-2641-4c65-bb5c-f6dc92749753" name="Changes" comment="Completando pago html y resolviendo el tema del modal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/pago.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/pago.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/tienda.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tienda.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/unnamed-_1_.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/footerHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/footerHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pago.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pago.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ayuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ayuda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/detalleProductoC.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detalleProductoC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/misRecetas.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pago.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pago.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/registrate.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registrate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/tienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tienda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tusRecetas.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tusRecetas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763397522362</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Completando pago html y resolviendo el tema del modal">
+      <option name="closed" value="true" />
+      <created>1763729923656</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1763729923656</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -151,6 +145,7 @@
     <MESSAGE value="Cambios en registro, inicio de sesion y js" />
     <MESSAGE value="Funcionalidad de autentificacion y acceso a mis recetas" />
     <MESSAGE value="Arreglo de footer y header para que se vea igual en todas las paginas y linkeo entre paginas html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglo de footer y header para que se vea igual en todas las paginas y linkeo entre paginas html" />
+    <MESSAGE value="Completando pago html y resolviendo el tema del modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completando pago html y resolviendo el tema del modal" />
   </component>
 </project>
