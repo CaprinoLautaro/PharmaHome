@@ -67,13 +67,14 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="cuil" class="form-label fw-medium">CUIL</label>
+                    <label for="dni" class="form-label fw-medium">DNI</label>
                     <input
                             type="text"
                             class="form-control custom-input"
-                            id="cuil"
-                            placeholder="EJ: 20-12344433-7"
-                            pattern="\d{2}-\d{8}-\d{1}"
+                            id="dni"
+                            placeholder="EJ: 45123456"
+                            pattern="\d{7,8}"
+                            maxlength="8"
                             required
                     >
                 </div>

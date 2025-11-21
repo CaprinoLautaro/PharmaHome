@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Elementos del Paso 3
     const botonVolverInicio = document.querySelector('.boton-volver-inicio');
     
+    // Elemento del resumen
+    const tituloResumen = document.querySelector('.resumen-lateral .titulo-seccion');
+    
     // Estado actual
     let pasoActual = 1;
     let metodoPagoSeleccionado = null;
@@ -90,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     botonVolverInicio?.addEventListener('click', function() {
         // Aquí podrías redirigir al inicio
-        alert('Redirigiendo al inicio...');
-        // window.location.href = '/index.html';
+        
+        window.location.href = '/index.html';
     });
 
     // ============================================
@@ -99,13 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     function mostrarPaso(numeroPaso) {
-        // Ocultar todas las secciones principales
+        console.log(`Mostrando paso ${numeroPaso}`);
+        
+        // Ocultar TODAS las secciones principales
         seccionPaso1.classList.add('desactivado');
         seccionPaso2.classList.add('desactivado');
         seccionPaso3.classList.add('desactivado');
         
         // Mostrar solo la sección del paso actual
-        document.getElementById(`paso-${numeroPaso}`).classList.remove('desactivado');
+        const pasoActualElement = document.getElementById(`paso-${numeroPaso}`);
+        if (pasoActualElement) {
+            pasoActualElement.classList.remove('desactivado');
+        }
         
         // Actualizar estado
         pasoActual = numeroPaso;
@@ -113,10 +121,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Actualizar barra de progreso
         actualizarProgreso();
         
+        // Actualizar título del resumen según el paso
+        actualizarTituloResumen(numeroPaso);
+        
         // Si estamos volviendo al paso 1, resetear su estado interno
         if (numeroPaso === 1) {
             resetearPaso1();
         }
+    }
+
+    function actualizarTituloResumen(numeroPaso) {
+        if (!tituloResumen) return;
+        
+        const titulos = {
+            1: 'Resumen del Pedido',
+            2: 'Resumen del Pedido', 
+            3: 'Pedido Confirmado'
+        };
+        tituloResumen.textContent = titulos[numeroPaso] || 'Resumen del Pedido';
     }
 
     function resetearPaso1() {
@@ -131,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function actualizarProgreso() {
+        console.log(`Actualizando progreso al paso ${pasoActual}`);
+        
         // Actualizar pasos
         pasos.forEach((paso, index) => {
             const numeroPaso = parseInt(paso.getAttribute('data-paso'));

@@ -28,6 +28,26 @@ body {
 }
 
 /* =======================================================================================
+    ESTRUCTURA DE DOS COLUMNAS
+   ======================================================================================= */
+.contenedor-pasos-resumen {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.columna-pasos {
+    flex: 1;
+    min-width: 0;
+}
+
+.columna-resumen {
+    width: 350px;
+    position: sticky;
+    top: 20px;
+}
+
+/* =======================================================================================
     BARRA DE PROGRESO
    ======================================================================================= */
 .barra-progreso {
@@ -340,18 +360,22 @@ body {
     flex: 1;
 }
 
+/* =======================================================================================
+    RESUMEN LATERAL (ACTUALIZADO)
+   ======================================================================================= */
 .resumen-lateral {
-    max-width: 400px;
-    margin: 40px auto 0;
-    background: #f8f9fa;
+    background: white;
     padding: 25px;
     border-radius: 12px;
     border: 2px solid #e9ecef;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .resumen-lateral .titulo-seccion {
     font-size: 1.4rem;
     margin-bottom: 20px;
+    text-align: center;
+    color: var(--dark-text);
 }
 
 .detalles-resumen p {
@@ -360,6 +384,7 @@ body {
     padding: 10px 0;
     border-bottom: 1px solid #dee2e6;
     margin: 0;
+    font-size: 0.95rem;
 }
 
 .totales-resumen p {
@@ -368,10 +393,11 @@ body {
     padding: 12px 0;
     margin: 0;
     font-weight: 600;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .total-a-pagar {
-    background: white;
+    background: linear-gradient(135deg, #f8f9ff 0%, #e9ecef 100%);
     padding: 20px;
     border-radius: 10px;
     border: 2px solid var(--secondary-color);
@@ -513,6 +539,21 @@ body {
     RESPONSIVE
    ======================================================================================= */
 @media (max-width: 968px) {
+    .contenedor-pasos-resumen {
+        flex-direction: column;
+    }
+    
+    .columna-resumen {
+        width: 100%;
+        position: static;
+        order: -1;
+    }
+    
+    .resumen-lateral {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
     .metodo-pago {
         flex-direction: column;
         align-items: center;
@@ -562,5 +603,9 @@ body {
     
     .confirmacion-pedido h1 {
         font-size: 2rem;
+    }
+    
+    .contenedor-pasos-resumen {
+        gap: 20px;
     }
 }
