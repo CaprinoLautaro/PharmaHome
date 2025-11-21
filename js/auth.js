@@ -49,7 +49,7 @@ function handleRegister(e) {
     const nombreCompleto = document.getElementById('nombreCompleto').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const cuil = document.getElementById('cuil').value;
+    const dni = document.getElementById('dni').value; // Cambiado de cuil a dni
     const tramiteDNI = document.getElementById('tramiteDNI').value;
 
     // Validaciones básicas
@@ -60,6 +60,12 @@ function handleRegister(e) {
 
     if (password.length < 8) {
         alert('La contraseña debe tener al menos 8 caracteres.');
+        return;
+    }
+
+    // Validar DNI (7 u 8 dígitos)
+    if (!/^\d{7,8}$/.test(dni)) {
+        alert('Por favor, ingresa un DNI válido (7 u 8 dígitos).');
         return;
     }
 
@@ -78,7 +84,7 @@ function handleRegister(e) {
         nombreCompleto,
         email,
         password,
-        cuil,
+        dni, // Cambiado de cuil a dni
         tramiteDNI,
         fechaRegistro: new Date().toISOString()
     };
