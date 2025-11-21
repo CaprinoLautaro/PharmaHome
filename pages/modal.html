@@ -1,72 +1,128 @@
-<div class="modal fade" id="guiaModal" tabindex="-1" aria-labelledby="guiaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content guia-modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <div class="modal fade" id="guiaModal" tabindex="-1" aria-labelledby="guiaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content shadow-lg border-0 guia-modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body text-center">
-                    <h2 class="modal-title fw-bold" id="guiaModalLabel">Guía para usuarios</h2>
+                <div class="modal-body px-4 px-md-5 pb-5">
+                    <!-- Título principal con badge -->
+                    <div class="text-center mb-4">
+                        <span class="badge bg-primary bg-gradient px-4 py-2 rounded-pill mb-3">
+                            <i class="fa-solid fa-book-open me-2"></i>Guía Rápida
+                        </span>
+                        <h2 class="modal-title fw-bold display-6 text-primary" id="guiaModalLabel">Guía para usuarios</h2>
+                        <p class="text-muted mt-2">Sigue estos sencillos pasos para comenzar</p>
+                    </div>
 
-                    <div class="guia-steps-container mt-4">
+                    <!-- Lista de pasos con cards -->
+                    <div class="row g-3 mb-4">
                         <!-- Paso 1 -->
-                        <div class="guia-step">
-                            <div class="guia-step-icon">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div class="guia-step-text">
-                                <strong>Paso 1: Regístrate en Pharmahome</strong>
-                                <small>Ingresa con tu CUIL y tu nro de tramite</small>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100 guia-step-card">
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <span class="badge rounded-circle bg-primary p-3 guia-step-number">
+                                            <i class="fa-solid fa-user-plus fa-lg"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-1 fw-bold">Paso 1: Regístrate en Pharmahome</h5>
+                                        <p class="card-text text-muted small mb-0">Ingresa con tu CUIL y tu nro de trámite</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Paso 2 -->
-                        <div class="guia-step">
-                            <div class="guia-step-icon">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div class="guia-step-text">
-                                <strong>Paso 2: Ingresa a tu tienda</strong>
-                                <small>Ahí verás los productos que te recetaron y algunos productos más para vos
-                                    ;</small>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100 guia-step-card">
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <span class="badge rounded-circle bg-primary p-3 guia-step-number">
+                                            <i class="fa-solid fa-store fa-lg"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-1 fw-bold">Paso 2: Ingresa a tu tienda</h5>
+                                        <p class="card-text text-muted small mb-0">Ahí verás los productos que te recetaron y algunos productos más para vos</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Paso 3 -->
-                        <div class="guia-step">
-                            <div class="guia-step-icon">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div class="guia-step-text">
-                                <strong>Paso 3: Ve a tus recetas</strong>
-                                <small>Podrás ver quién te recetó. Qué recetas expiran y tenés que comprar con
-                                    urgencia</small>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100 guia-step-card">
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <span class="badge rounded-circle bg-primary p-3 guia-step-number">
+                                            <i class="fa-solid fa-file-prescription fa-lg"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-1 fw-bold">Paso 3: Ve a tus recetas</h5>
+                                        <p class="card-text text-muted small mb-0">Podrás ver quién te recetó. Qué recetas expiran y tenés que comprar con urgencia</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Paso 4 -->
-                        <div class="guia-step">
-                            <div class="guia-step-icon">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div class="guia-step-text">
-                                <strong>Paso 4: Ve al carrito</strong>
-                                <small>Sigue los pasos del carrito para comprar tus medicamentos</small>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100 guia-step-card">
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <span class="badge rounded-circle bg-primary p-3 guia-step-number">
+                                            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-1 fw-bold">Paso 4: Ve al carrito</h5>
+                                        <p class="card-text text-muted small mb-0">Sigue los pasos del carrito para comprar tus medicamentos</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Paso 5 -->
-                        <div class="guia-step">
-                            <div class="guia-step-icon">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div class="guia-step-text">
-                                <strong>Paso 5: Espera tu paquete y disfruta</strong>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100 guia-step-card">
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <span class="badge rounded-circle bg-primary p-3 guia-step-number">
+                                            <i class="fa-solid fa-box fa-lg"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-1 fw-bold">Paso 5: Espera tu paquete y disfruta</h5>
+                                        <p class="card-text text-muted small mb-0">Recibirás tu pedido en la comodidad de tu hogar</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <h3 class="dudas-title fw-bold mt-4">Aún tienes dudas?</h3>
-                    <a href="./pages/ayuda.html" class="btn btn-faq mt-3">Ir a preguntas frecuentes</a>
+                    <!-- Sección de dudas -->
+                    <div class="text-center pt-4 border-top">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fa-solid fa-circle-question text-primary me-2"></i>
+                            ¿Aún tienes dudas?
+                        </h4>
+                        <a href="./pages/ayuda.html" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm">
+                            <i class="fa-solid fa-circle-info me-2"></i>Ir a preguntas frecuentes
+                        </a>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
+</body>
+</html>
+
+
