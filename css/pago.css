@@ -137,7 +137,172 @@ body {
 }
 
 /* =======================================================================================
-    PASO 1: MÉTODOS DE PAGO
+    PASO 1: CARRITO
+   ======================================================================================= */
+.carrito-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lista-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.producto-carrito {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    transition: 0.3s ease;
+}
+
+.producto-carrito:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.producto-imagen {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-info {
+    flex: 1;
+}
+
+.producto-info h4 {
+    margin: 0 0 5px 0;
+    color: var(--dark-text);
+    font-size: 1.1rem;
+}
+
+.producto-desc {
+    margin: 0 0 10px 0;
+    color: var(--grey-text);
+    font-size: 0.9rem;
+}
+
+.producto-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cantidad {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ced4da;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-cantidad:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.cantidad {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.producto-precio {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.precio-unitario {
+    font-size: 0.9rem;
+    color: var(--grey-text);
+}
+
+.precio-total {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.btn-eliminar {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 5px;
+}
+
+.btn-eliminar:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.carrito-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.carrito-actions .boton {
+    flex: 1;
+}
+
+.carrito-vacio {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+}
+
+.carrito-vacio h3 {
+    color: var(--dark-text);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.carrito-vacio p {
+    color: var(--grey-text);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.carrito-vacio .boton {
+    min-width: 200px;
+}
+
+/* =======================================================================================
+    PASO 2: MÉTODOS DE PAGO
    ======================================================================================= */
 .metodo-pago {
     display: flex;
@@ -310,7 +475,7 @@ body {
 }
 
 /* =======================================================================================
-    PASO 2: INFORMACIÓN DE ENVÍO
+    PASO 3: INFORMACIÓN DE ENVÍO
    ======================================================================================= */
 .info-envio {
     max-width: 800px;
@@ -419,7 +584,7 @@ body {
 }
 
 /* =======================================================================================
-    PASO 3: CONFIRMACIÓN
+    PASO 4: CONFIRMACIÓN
    ======================================================================================= */
 .confirmacion-pedido {
     text-align: center;
@@ -607,5 +772,28 @@ body {
     
     .contenedor-pasos-resumen {
         gap: 20px;
+    }
+}
+
+/* =======================================================================================
+    RESPONSIVE - CARRITO
+   ======================================================================================= */
+@media (max-width: 768px) {
+    .producto-carrito {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .producto-info {
+        text-align: center;
+    }
+    
+    .producto-precio {
+        text-align: center;
+    }
+    
+    .carrito-actions {
+        flex-direction: column;
     }
 }

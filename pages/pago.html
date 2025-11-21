@@ -12,223 +12,321 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;700&display=swap"
-            rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
 <body>
-<header id="header"></header>
+    <header id="header"></header>
 
-<main class="contenedor-principal-pago">
-    <!-- Barra de Progreso -->
-    <section class="barra-progreso">
-        <div class="paso activo" data-paso="1">
+    <main class="contenedor-principal-pago">
+        <!-- Barra de Progreso -->
+        <section class="barra-progreso">
+            <div class="paso activo" data-paso="1">
+                <span class="circulo">
+                    <i class="fas fa-shopping-cart"></i>
+                </span>
+                <span class="etiqueta">Carrito</span>
+            </div>
+            <div class="linea" data-linea="1"></div>
+            <div class="paso" data-paso="2">
                 <span class="circulo">
                     <i class="fas fa-credit-card"></i>
                 </span>
-            <span class="etiqueta">Pago</span>
-        </div>
-        <div class="linea" data-linea="1"></div>
-        <div class="paso" data-paso="2">
+                <span class="etiqueta">Pago</span>
+            </div>
+            <div class="linea" data-linea="2"></div>
+            <div class="paso" data-paso="3">
                 <span class="circulo">
                     <i class="fas fa-truck"></i>
                 </span>
-            <span class="etiqueta">Envío</span>
-        </div>
-        <div class="linea" data-linea="2"></div>
-        <div class="paso" data-paso="3">
+                <span class="etiqueta">Envío</span>
+            </div>
+            <div class="linea" data-linea="3"></div>
+            <div class="paso" data-paso="4">
                 <span class="circulo">
                     <i class="fas fa-check"></i>
                 </span>
-            <span class="etiqueta">Confirmado</span>
-        </div>
-    </section>
+                <span class="etiqueta">Confirmado</span>
+            </div>
+        </section>
 
-    <!-- CONTENEDOR PRINCIPAL CON DOS COLUMNAS -->
-    <div class="contenedor-pasos-resumen">
-        <!-- Columna izquierda: Pasos del checkout -->
-        <div class="columna-pasos">
-            <!-- PASO 1: Métodos de Pago -->
-            <section class="seccion-paso" id="paso-1">
-                <h2 class="titulo-seccion">Elegir método de pago</h2>
+        <!-- CONTENEDOR PRINCIPAL CON DOS COLUMNAS -->
+        <div class="contenedor-pasos-resumen">
+            <!-- Columna izquierda: Pasos del checkout -->
+            <div class="columna-pasos">
 
-                <div class="metodo-pago">
-                    <div class="card-pago">
-                        <h3 class="titulo-pago">Mercado Pago</h3>
-                        <img src="/assets/mercadopago.png" alt="Mercado Pago">
-                        <button class="boton booton-Mercado" data-metodo="mercadopago">
-                            Quiero este
-                        </button>
-                    </div>
-                    <div class="card-pago">
-                        <h3 class="titulo-pago">Tarjeta</h3>
-                        <img src="/assets/tarjeta.jpg" alt="Tarjeta de crédito">
-                        <button class="boton booton-Tarjeta" data-metodo="tarjeta">
-                            Quiero este
-                        </button>
-                    </div>
-                </div>
 
-                <!-- Formulario de Tarjeta (oculto inicialmente) -->
-                <div class="pago-tarjeta desactivado" id="formulario-tarjeta">
-                    <h2 class="titulo-tarjeta">Tarjeta:</h2>
-                    <div class="contenido-tarjeta">
-                        <div class="sector-tarjeta">
-                            <div class="elegir-tarjeta">
-                                <input type="radio" id="visa" name="opcion-tarjeta" checked>
-                                <label for="visa">VISA</label>
+                <section class="seccion-paso" id="paso-1">
+                    <h2 class="titulo-seccion">Tu Carrito de Compras</h2>
 
-                                <input type="radio" id="masterCard" name="opcion-tarjeta">
-                                <label for="masterCard">mastercard</label>
-                            </div>
-                            <div class="imagen-tarjeta-container">
-                                <img src="/assets/TarjetaCredito.avif" alt="Tarjeta de crédito" class="imagen-tarjeta">
-                            </div>
-                        </div>
-
-                        <div class="formulario-pago">
-                            <form id="form-tarjeta">
-                                <div class="campo">
-                                    <label for="nro-tarjeta">Nro de tarjeta:</label>
-                                    <input type="text" id="nro-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19">
+                    <div class="carrito-container">
+                        <div class="lista-productos">
+                            <!-- Producto 1 -->
+                            <div class="producto-carrito">
+                                <div class="producto-imagen">
+                                    <img src="../img/ibu400.jpg" alt="Ibuprofeno 400mg">
                                 </div>
-                                <div class="campo">
-                                    <label for="nya">Nombre y apellido</label>
-                                    <input type="text" id="nya" placeholder="Julian alvarez">
-                                </div>
-                                <div class="fila-doble">
-                                    <div class="campo">
-                                        <label for="expiracion">Fecha de expiración</label>
-                                        <input type="text" id="expiracion" placeholder="10/29..." maxlength="5">
-                                    </div>
-                                    <div class="campo">
-                                        <label for="cvc">CVC</label>
-                                        <input type="text" id="cvc" placeholder="1234..." maxlength="4">
+                                <div class="producto-info">
+                                    <h4>Ibuprofeno 400mg</h4>
+                                    <p class="producto-desc">Analgésico y antiinflamatorio</p>
+                                    <div class="producto-controls">
+                                        <button class="btn-cantidad" data-accion="restar">-</button>
+                                        <span class="cantidad">2</span>
+                                        <button class="btn-cantidad" data-accion="sumar">+</button>
                                     </div>
                                 </div>
-                            </form>
-                            <div class="botones-formulario">
-                                <button type="button" class="boton boton-secundario boton-volver-metodos">
-                                    <i class="fas fa-arrow-left"></i> Volver a métodos
-                                </button>
-                                <button class="boton boton-pagar-tarjeta">Continuar</button>
+                                <div class="producto-precio">
+                                    <span class="precio-unitario">$2500 c/u</span>
+                                    <span class="precio-total">$5000</span>
+                                    <button class="btn-eliminar">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- PASO 2: Información de Envío -->
-            <section class="seccion-paso desactivado" id="paso-2">
-                <h2 class="titulo-seccion">Información de Envío</h2>
-                <div class="info-envio">
-                    <form id="form-envio">
-                        <div class="fila-doble">
-                            <div class="campo">
-                                <label>Nombre</label>
-                                <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+                            <!-- Producto 2 -->
+                            <div class="producto-carrito">
+                                <div class="producto-imagen">
+                                    <img src="../img/tafirolplus.webp" alt="Tafirol Plus">
+                                </div>
+                                <div class="producto-info">
+                                    <h4>Tafirol Plus</h4>
+                                    <p class="producto-desc">Analgésico y antipirético</p>
+                                    <div class="producto-controls">
+                                        <button class="btn-cantidad" data-accion="restar">-</button>
+                                        <span class="cantidad">2</span>
+                                        <button class="btn-cantidad" data-accion="sumar">+</button>
+                                    </div>
+                                </div>
+                                <div class="producto-precio">
+                                    <span class="precio-unitario">$3000 c/u</span>
+                                    <span class="precio-total">$6000</span>
+                                    <button class="btn-eliminar">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="campo">
-                                <label>Apellido</label>
-                                <input type="text" id="apellido" placeholder="Ingresa tu apellido">
-                            </div>
-                        </div>
 
-                        <div class="fila-doble">
-                            <div class="campo">
-                                <label>Email</label>
-                                <input type="email" id="email" placeholder="Ingresa tu email">
-                            </div>
-                            <div class="campo">
-                                <label>Teléfono</label>
-                                <input type="tel" id="telefono" placeholder="Ingresa tu teléfono">
-                            </div>
-                        </div>
-
-                        <div class="campo">
-                            <label>Dirección</label>
-                            <input type="text" id="direccion" placeholder="Ingresa tu dirección completa">
-                        </div>
-
-                        <div class="fila-triple">
-                            <div class="campo">
-                                <label>Ciudad</label>
-                                <input type="text" id="ciudad" placeholder="Ciudad">
-                            </div>
-                            <div class="campo">
-                                <label>CP</label>
-                                <input type="text" id="cp" placeholder="Código Postal">
-                            </div>
-                            <div class="campo">
-                                <label>Provincia</label>
-                                <select id="provincia">
-                                    <option value="">Selecciona provincia</option>
-                                    <option value="bsas">Buenos Aires</option>
-                                    <option value="caba">CABA</option>
-                                    <option value="cordoba">Córdoba</option>
-                                    <option value="mendoza">Mendoza</option>
-                                    <option value="santa-fe">Santa Fe</option>
-                                </select>
+                            <!-- Producto 3 -->
+                            <div class="producto-carrito">
+                                <div class="producto-imagen">
+                                    <img src="/assets/amoxidal.jpg" alt="Amoxidal 500mg">
+                                </div>
+                                <div class="producto-info">
+                                    <h4>Amoxidal 500mg</h4>
+                                    <p class="producto-desc">Antibiótico de amplio espectro</p>
+                                    <div class="producto-controls">
+                                        <button class="btn-cantidad" data-accion="restar">-</button>
+                                        <span class="cantidad">1</span>
+                                        <button class="btn-cantidad" data-accion="sumar">+</button>
+                                    </div>
+                                </div>
+                                <div class="producto-precio">
+                                    <span class="precio-unitario">$500 c/u</span>
+                                    <span class="precio-total">$500</span>
+                                    <button class="btn-eliminar">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="botones-formulario">
-                            <button type="button" class="boton boton-secundario boton-volver-pago">
-                                <i class="fas fa-arrow-left"></i> Volver a pago
+                        <div class="carrito-actions">
+                            <button class="boton boton-secundario" onclick="window.location.href='../pages/tienda.html'">
+                                <i class="fas fa-arrow-left"></i> Seguir Comprando
                             </button>
-                            <button type="button" class="boton boton-continuar-envio">Continuar a Pago</button>
+                            <button class="boton boton-continuar-carrito">
+                                Continuar al Pago <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
-                    </form>
-                </div>
-            </section>
-
-            <!-- PASO 3: Confirmación -->
-            <section class="seccion-paso desactivado" id="paso-3">
-                <div class="confirmacion-pedido">
-                    <div class="icono-confirmacion">
-                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <h1>¡Compra Confirmada!</h1>
-                    <p class="numero-orden">Pedido #<span id="numero-pedido">123456</span></p>
+                </section>
 
-                    <div class="info-entrega">
-                        <p><strong>Estimado de entrega:</strong> 3 a 5 días hábiles</p>
-                        <p>Recibirás un email de confirmación con el número de seguimiento</p>
+
+                <!-- PASO 2: Métodos de Pago -->
+                <section class="seccion-paso" id="paso-2">
+                    <h2 class="titulo-seccion">Elegir método de pago</h2>
+
+                    <div class="metodo-pago">
+                        <div class="card-pago">
+                            <h3 class="titulo-pago">Mercado Pago</h3>
+                            <img src="/assets/mercadopago.png" alt="Mercado Pago">
+                            <button class="boton booton-Mercado" data-metodo="mercadopago">
+                                Quiero este
+                            </button>
+                        </div>
+                        <div class="card-pago">
+                            <h3 class="titulo-pago">Tarjeta</h3>
+                            <img src="/assets/tarjeta.jpg" alt="Tarjeta de crédito">
+                            <button class="boton booton-Tarjeta" data-metodo="tarjeta">
+                                Quiero este
+                            </button>
+                        </div>
                     </div>
 
-                    <button class="boton boton-volver-inicio">Volver al inicio</button>
-                </div>
-            </section>
-        </div>
+                    <!-- Formulario de Tarjeta (oculto inicialmente) -->
+                    <div class="pago-tarjeta desactivado" id="formulario-tarjeta">
+                        <h2 class="titulo-tarjeta">Tarjeta:</h2>
+                        <div class="contenido-tarjeta">
+                            <div class="sector-tarjeta">
+                                <div class="elegir-tarjeta">
+                                    <input type="radio" id="visa" name="opcion-tarjeta" checked>
+                                    <label for="visa">VISA</label>
 
-        <!-- Columna derecha: Resumen (siempre visible) -->
-        <div class="columna-resumen">
-            <div class="resumen-lateral">
-                <h3 class="titulo-seccion">Resumen del Pedido</h3>
-                <div class="detalles-resumen">
-                    <p>Ibuprofeno 400mg x2 <span>$5000</span></p>
-                    <p>Tafirol Plus x2 <span>$6000</span></p>
-                    <p>Amoxidal 500mg x1 <span>$500</span></p>
-                </div>
-                <div class="totales-resumen">
-                    <p>Subtotal: <span>$11500</span></p>
-                    <p>Envío: <span>$500</span></p>
-                </div>
-                <div class="total-a-pagar">
-                    <p>TOTAL A PAGAR <span>$12000</span></p>
+                                    <input type="radio" id="masterCard" name="opcion-tarjeta">
+                                    <label for="masterCard">mastercard</label>
+                                </div>
+                                <div class="imagen-tarjeta-container">
+                                    <img src="/assets/TarjetaCredito.avif" alt="Tarjeta de crédito"
+                                        class="imagen-tarjeta">
+                                </div>
+                            </div>
+
+                            <div class="formulario-pago">
+                                <form id="form-tarjeta">
+                                    <div class="campo">
+                                        <label for="nro-tarjeta">Nro de tarjeta:</label>
+                                        <input type="text" id="nro-tarjeta" placeholder="1234 5678 9012 3456"
+                                            maxlength="19">
+                                    </div>
+                                    <div class="campo">
+                                        <label for="nya">Nombre y apellido</label>
+                                        <input type="text" id="nya" placeholder="Julian alvarez">
+                                    </div>
+                                    <div class="fila-doble">
+                                        <div class="campo">
+                                            <label for="expiracion">Fecha de expiración</label>
+                                            <input type="text" id="expiracion" placeholder="10/29..." maxlength="5">
+                                        </div>
+                                        <div class="campo">
+                                            <label for="cvc">CVC</label>
+                                            <input type="text" id="cvc" placeholder="1234..." maxlength="4">
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="botones-formulario">
+                                    <button type="button" class="boton boton-secundario boton-volver-metodos">
+                                        <i class="fas fa-arrow-left"></i> Volver a métodos
+                                    </button>
+                                    <button class="boton boton-pagar-tarjeta">Continuar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PASO 2: Información de Envío -->
+                <section class="seccion-paso desactivado" id="paso-3">
+                    <h2 class="titulo-seccion">Información de Envío</h2>
+                    <div class="info-envio">
+                        <form id="form-envio">
+                            <div class="fila-doble">
+                                <div class="campo">
+                                    <label>Nombre</label>
+                                    <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+                                </div>
+                                <div class="campo">
+                                    <label>Apellido</label>
+                                    <input type="text" id="apellido" placeholder="Ingresa tu apellido">
+                                </div>
+                            </div>
+
+                            <div class="fila-doble">
+                                <div class="campo">
+                                    <label>Email</label>
+                                    <input type="email" id="email" placeholder="Ingresa tu email">
+                                </div>
+                                <div class="campo">
+                                    <label>Teléfono</label>
+                                    <input type="tel" id="telefono" placeholder="Ingresa tu teléfono">
+                                </div>
+                            </div>
+
+                            <div class="campo">
+                                <label>Dirección</label>
+                                <input type="text" id="direccion" placeholder="Ingresa tu dirección completa">
+                            </div>
+
+                            <div class="fila-triple">
+                                <div class="campo">
+                                    <label>Ciudad</label>
+                                    <input type="text" id="ciudad" placeholder="Ciudad">
+                                </div>
+                                <div class="campo">
+                                    <label>CP</label>
+                                    <input type="text" id="cp" placeholder="Código Postal">
+                                </div>
+                                <div class="campo">
+                                    <label>Provincia</label>
+                                    <select id="provincia">
+                                        <option value="">Selecciona provincia</option>
+                                        <option value="bsas">Buenos Aires</option>
+                                        <option value="caba">CABA</option>
+                                        <option value="cordoba">Córdoba</option>
+                                        <option value="mendoza">Mendoza</option>
+                                        <option value="santa-fe">Santa Fe</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="botones-formulario">
+                                <button type="button" class="boton boton-secundario boton-volver-pago">
+                                    <i class="fas fa-arrow-left"></i> Volver a pago
+                                </button>
+                                <button type="button" class="boton boton-continuar-envio">Continuar a Pago</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- PASO 3: Confirmación -->
+                <section class="seccion-paso desactivado" id="paso-4">
+                    <div class="confirmacion-pedido">
+                        <div class="icono-confirmacion">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h1>¡Compra Confirmada!</h1>
+                        <p class="numero-orden">Pedido #<span id="numero-pedido">123456</span></p>
+
+                        <div class="info-entrega">
+                            <p><strong>Estimado de entrega:</strong> 3 a 5 días hábiles</p>
+                            <p>Recibirás un email de confirmación con el número de seguimiento</p>
+                        </div>
+
+                        <button class="boton boton-volver-inicio" onclick="window.location.href='../index.html'">Volver al inicio</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Columna derecha: Resumen (siempre visible) -->
+            <div class="columna-resumen">
+                <div class="resumen-lateral">
+                    <h3 class="titulo-seccion">Resumen del Pedido</h3>
+                    <div class="detalles-resumen">
+                        <p>Ibuprofeno 400mg x2 <span>$5000</span></p>
+                        <p>Tafirol Plus x2 <span>$6000</span></p>
+                        <p>Amoxidal 500mg x1 <span>$500</span></p>
+                    </div>
+                    <div class="totales-resumen">
+                        <p>Subtotal: <span>$11500</span></p>
+                        <p>Envío: <span>$500</span></p>
+                    </div>
+                    <div class="total-a-pagar">
+                        <p>TOTAL A PAGAR <span>$12000</span></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<div id="modal-container"></div>
-<footer id="footer"></footer>
+    <div id="modal-container"></div>
+    <footer id="footer"></footer>
 
-<script src="../js/pago.js"></script>
-<script src="../js/footerHeader.js"></script>
-<script src="../js/auth.js"></script>
+    <script src="../js/pago.js"></script>
+    <script src="../js/footerHeader.js"></script>
+    <script src="../js/auth.js"></script>
 </body>
 
 </html>

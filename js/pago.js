@@ -4,23 +4,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const pasos = document.querySelectorAll('.paso');
     const lineas = document.querySelectorAll('.linea');
     
-    // Secciones principales
+    // Secciones principales (ahora son 4 pasos)
     const seccionPaso1 = document.getElementById('paso-1');
     const seccionPaso2 = document.getElementById('paso-2');
     const seccionPaso3 = document.getElementById('paso-3');
+    const seccionPaso4 = document.getElementById('paso-4');
     
-    // Elementos del Paso 1
+    // Elementos del Paso 1 (Carrito)
+    const botonContinuarCarrito = document.querySelector('.boton-continuar-carrito');
+    
+    // Elementos del Paso 2 (Pago)
     const metodoPago = document.querySelector('.metodo-pago');
     const formularioTarjeta = document.getElementById('formulario-tarjeta');
     const botonesMetodoPago = document.querySelectorAll('.card-pago .boton');
     const botonPagarTarjeta = document.querySelector('.boton-pagar-tarjeta');
     const botonVolverMetodos = document.querySelector('.boton-volver-metodos');
     
-    // Elementos del Paso 2
+    // Elementos del Paso 3 (Envío)
     const botonContinuarEnvio = document.querySelector('.boton-continuar-envio');
     const botonVolverPago = document.querySelector('.boton-volver-pago');
     
-    // Elementos del Paso 3
+    // Elementos del Paso 4 (Confirmación)
     const botonVolverInicio = document.querySelector('.boton-volver-inicio');
     
     // Elemento del resumen
@@ -30,11 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let pasoActual = 1;
     let metodoPagoSeleccionado = null;
 
-    // Inicializar - mostrar solo el paso 1
+    // Inicializar - mostrar solo el paso 1 (Carrito)
     mostrarPaso(1);
 
     // ============================================
-    // PASO 1: Selección de método de pago
+    // PASO 1: Carrito
+    // ============================================
+    
+    botonContinuarCarrito?.addEventListener('click', function() {
+        mostrarPaso(2);
+    });
+
+    // Funcionalidad del carrito
+    inicializarCarrito();
+
+    // ============================================
+    // PASO 2: Selección de método de pago
     // ============================================
     
     botonesMetodoPago.forEach(boton => {
@@ -46,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 metodoPago.classList.add('desactivado');
                 formularioTarjeta.classList.remove('desactivado');
             } else if (metodoPagoSeleccionado === 'mercadopago') {
-                // Ir directamente al paso 2
-                mostrarPaso(2);
+                // Ir directamente al paso 3 (Envío)
+                mostrarPaso(3);
             }
         });
     });
@@ -64,37 +79,27 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         
         if (validarFormularioTarjeta()) {
-            mostrarPaso(2);
+            mostrarPaso(3);
         }
     });
 
     // ============================================
-    // PASO 2: Información de envío
+    // PASO 3: Información de envío
     // ============================================
     
     botonContinuarEnvio?.addEventListener('click', function(e) {
         e.preventDefault();
         
         if (validarFormularioEnvio()) {
-            mostrarPaso(3);
+            mostrarPaso(4);
         }
     });
 
-    // Volver al paso 1 desde envío
+    // Volver al paso 2 desde envío
     botonVolverPago?.addEventListener('click', function() {
-        // Resetear el estado del paso 1 antes de volver
-        resetearPaso1();
-        mostrarPaso(1);
-    });
-
-    // ============================================
-    // PASO 3: Confirmación
-    // ============================================
-    
-    botonVolverInicio?.addEventListener('click', function() {
-        // Aquí podrías redirigir al inicio
-        
-        window.location.href = '/index.html';
+        // Resetear el estado del paso 2 antes de volver
+        resetearPaso2();
+        mostrarPaso(2);
     });
 
     // ============================================
@@ -108,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         seccionPaso1.classList.add('desactivado');
         seccionPaso2.classList.add('desactivado');
         seccionPaso3.classList.add('desactivado');
+        seccionPaso4.classList.add('desactivado');
         
         // Mostrar solo la sección del paso actual
         const pasoActualElement = document.getElementById(`paso-${numeroPaso}`);
@@ -124,10 +130,75 @@ document.addEventListener('DOMContentLoaded', function() {
         // Actualizar título del resumen según el paso
         actualizarTituloResumen(numeroPaso);
         
-        // Si estamos volviendo al paso 1, resetear su estado interno
-        if (numeroPaso === 1) {
-            resetearPaso1();
+        // Resetear estados internos si es necesario
+        if (numeroPaso === 2) {
+            resetearPaso2();
         }
+    }
+
+    function inicializarCarrito() {
+        // Botones de cantidad
+        document.querySelectorAll('.btn-cantidad').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const accion = this.getAttribute('data-accion');
+                const producto = this.closest('.producto-carrito');
+                const cantidadElement = producto.querySelector('.cantidad');
+                let cantidad = parseInt(cantidadElement.textContent);
+                
+                if (accion === 'sumar') {
+                    cantidad++;
+                } else if (accion === 'restar' && cantidad > 1) {
+                    cantidad--;
+                }
+                
+                cantidadElement.textContent = cantidad;
+                actualizarPrecioProducto(producto);
+                actualizarResumen();
+            });
+        });
+
+        // Botones de eliminar
+        document.querySelectorAll('.btn-eliminar').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const producto = this.closest('.producto-carrito');
+                producto.remove();
+                actualizarResumen();
+                
+                // Si no quedan productos, mostrar mensaje
+                if (document.querySelectorAll('.producto-carrito').length === 0) {
+                    mostrarCarritoVacio();
+                }
+            });
+        });
+    }
+
+    function actualizarPrecioProducto(producto) {
+        const cantidad = parseInt(producto.querySelector('.cantidad').textContent);
+        const precioUnitario = parseInt(producto.querySelector('.precio-unitario').textContent.replace('$', '').replace(' c/u', ''));
+        const precioTotalElement = producto.querySelector('.precio-total');
+        
+        const precioTotal = cantidad * precioUnitario;
+        precioTotalElement.textContent = `$${precioTotal}`;
+    }
+
+    function actualizarResumen() {
+        // Aquí puedes implementar la actualización del resumen
+        // cuando cambian las cantidades o se eliminan productos
+        console.log('Actualizando resumen...');
+    }
+
+    function mostrarCarritoVacio() {
+        const carritoContainer = document.querySelector('.carrito-container');
+        carritoContainer.innerHTML = `
+            <div class="carrito-vacio">
+                <i class="fas fa-shopping-cart" style="font-size: 4rem; color: #6c757d; margin-bottom: 20px;"></i>
+                <h3>Tu carrito está vacío</h3>
+                <p>Agrega algunos productos para continuar</p>
+                <button class="boton" onclick="window.location.href='../pages/tienda.html'">
+                    <i class="fas fa-arrow-left"></i> Volver a Comprar
+                </button>
+            </div>
+        `;
     }
 
     function actualizarTituloResumen(numeroPaso) {
@@ -136,12 +207,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const titulos = {
             1: 'Resumen del Pedido',
             2: 'Resumen del Pedido', 
-            3: 'Pedido Confirmado'
+            3: 'Resumen del Pedido',
+            4: 'Pedido Confirmado'
         };
         tituloResumen.textContent = titulos[numeroPaso] || 'Resumen del Pedido';
     }
 
-    function resetearPaso1() {
+    function resetearPaso2() {
         // Ocultar formulario de tarjeta si está visible
         formularioTarjeta.classList.add('desactivado');
         // Mostrar métodos de pago
