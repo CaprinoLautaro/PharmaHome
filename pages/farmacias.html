@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/base.css"> 
     <link rel="stylesheet" href="/css/farmacias.css"> 
     <link rel="stylesheet" href="/css/estilosHome.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
 
@@ -23,33 +24,57 @@
                         <div class="filter-group">
                             <label for="provincia">Provincia</label>
                             <div class="custom-select-wrapper">
-                                <select id="provincia" class="form-control">
-                                    <option selected>Tu provincia...</option>
-                                    <option>Buenos Aires</option>
-                                    <option>Catamarca</option>
-                                    <option>CABA</option>
-                                    <option>Chaco</option>
-                                    <option>Chubut</option>
-                                    <option>Córdoba</option>
+                                <select id="provincia-input" class="form-control">
+                                    <option value="" selected>Tu provincia...</option>
+                                    <option value="Buenos Aires">Buenos Aires</option>
+                                    <option value="Catamarca">Catamarca</option>
+                                    <option value="CABA">CABA</option>
+                                    <option value="Chaco">Chaco</option>
+                                    <option value="Chubut">Chubut</option>
+                                    <option value="Cordoba">Córdoba</option>
+                                    <option value="Córdoba">Córdoba</option>
+                                    <option value="Corrientes">Corrientes</option>
+                                    <option value="Entre Ríos">Entre Ríos</option>
+                                    <option value="Formosa">Formosa</option>
+                                    <option value="Jujuy">Jujuy</option>
+                                    <option value="La Pampa">La Pampa</option>
+                                    <option value="La Rioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquén">Neuquén</option>
+                                    <option value="Río Negro">Río Negro</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                    <option value="Tucumán">Tucumán</option>
                                 </select>
                             </div>
                         </div>
                         <div class="filter-group">
                             <label for="localidad">Localidad</label>
                              <div class="input-with-icon">
-                                <input type="text" id="localidad" class="form-control" placeholder="Localidad...">
+                                <input type="text" id="localidad-input" class="form-control" placeholder="Localidad...">
                                 <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
                         <div class="filter-group">
                             <label for="cod-postal">Cod Postal</label>
-                            <input type="text" id="cod-postal" class="form-control" placeholder="Tu código postal...">
+                            <input type="text" id="cod-postal-input" class="form-control" placeholder="Tu código postal...">
                         </div>
+
+                        <div class="d-grid">
+                            <button id="search-btn" class="btn btn-primary">Buscar en el mapa</button>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="map-container">
-                        <img src="" alt="Mapa">
+                        <div id="map"></div>
                     </div>
                 </div>
             </div>
@@ -124,6 +149,7 @@
     <footer id="footer"></footer>
     
     <script src="/js/footerHeader.js"></script>
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="/js/mapa-farmacias.js"></script>
 </body>
 </html>

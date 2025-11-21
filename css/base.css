@@ -2,7 +2,6 @@
     --primary-color: #8c52ff; 
     --secondary-color: #00bf63; 
     --primary-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-
     --dark-text: #212529;
     --grey-text: #6c757d;
     --light-grey-border: #ced4da;
@@ -60,7 +59,6 @@
     height: 44px;
 }
 
-/* Acciones de usuario a la derecha */
 .user-actions {
     gap: 0.5rem;
 }
@@ -137,6 +135,36 @@
 .btn-ayuda:hover {
     background-color: #e9ecef;
     color: var(--dark-text);
+}
+
+@media (max-width: 991.98px) {
+
+    .top-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between; 
+        row-gap: 1rem; 
+    }
+
+    .search-form {
+        flex-basis: 100%;
+        order: 3;
+    }
+    
+    .top-bar .navbar-brand {
+        margin-right: 0 !important;
+    }
+    .top-bar .btn-ingresar {
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .main-nav .nav-links-container {
+        justify-content: center !important;
+        flex-wrap: wrap; 
+    }
 }
 
 /* ---- Footer ---- */
