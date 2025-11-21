@@ -80,6 +80,12 @@ details label {
         gap: 24px;
 }
 
+.contenedor-card-productos-venta-libre{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 24px;
+}
+
 .card-productos {
         background: white;
         border-radius: 12px;
