@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="../css/tienda.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/modal.css">
-    <link rel="stylesheet" href="../css/carrito.css">
 </head>
 
 <body>
@@ -173,13 +172,5 @@
 <script src="../js/carrito.js"></script>
 <script src="../js/tienda.js"></script>
 
-<script>
-    // Cargar el carrito en todas las páginas
-    fetch('../components/carrito.html')
-        .then(response => response.text())
-        .then(html => {
-            document.body.insertAdjacentHTML('beforeend', html);
-        });
-</script>
 </body>
 </html>
