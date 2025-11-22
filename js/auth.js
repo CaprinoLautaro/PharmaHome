@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Protección de páginas para acceso directo
     checkPageProtection();
+
+    // Verificar redirección después del login
+    checkRedirectAfterLogin();
 });
 
 function checkPageProtection() {
@@ -39,6 +42,25 @@ function checkPageProtection() {
         if (!sessionData.isLoggedIn) {
             // Redirigir al login
             window.location.href = 'login.html';
+        }
+    }
+}
+
+// NUEVA FUNCIÓN: Verificar redirección después del login
+function checkRedirectAfterLogin() {
+    const sessionData = JSON.parse(localStorage.getItem('pharmahome_session') || '{}');
+    const redirectUrl = localStorage.getItem('redirectAfterLogin');
+    
+    // Solo redirigir si hay una URL guardada Y el usuario está logueado
+    if (redirectUrl && sessionData.isLoggedIn) {
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        // Solo redirigir si estamos en login.html o index.html
+        if (currentPage === 'login.html' || currentPage === 'index.html') {
+            setTimeout(() => {
+                localStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectUrl;
+            }, 500);
         }
     }
 }
@@ -112,10 +134,51 @@ function handleLogin(e) {
         // Iniciar sesión
         loginUser(user);
 
-        // Redirigir a la página principal
-        window.location.href = '../index.html';
+        // Verificar si hay redirección pendiente
+        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+        
+        if (redirectUrl) {
+            // Redirigir a la URL guardada
+            setTimeout(() => {
+                localStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectUrl;
+            }, 1000);
+        } else {
+            // Si no hay redirección, ir al home
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 1000);
+        }
+        
+        // Mostrar mensaje de éxito
+        mostrarMensajeLoginExitoso();
+        
     } else {
         alert('Correo electrónico o contraseña incorrectos.');
+    }
+}
+
+// Función para mostrar mensaje de login exitoso
+function mostrarMensajeLoginExitoso() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        // Crear mensaje de éxito
+        const successMessage = document.createElement('div');
+        successMessage.className = 'alert alert-success mt-3';
+        successMessage.innerHTML = `
+            <i class="fas fa-check-circle me-2"></i>
+            ¡Inicio de sesión exitoso! Redirigiendo...
+        `;
+        
+        // Insertar después del formulario
+        loginForm.parentNode.insertBefore(successMessage, loginForm.nextSibling);
+        
+        // Deshabilitar el formulario
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Redirigiendo...';
+        }
     }
 }
 
@@ -249,3 +312,13 @@ function validateEmail(email) {
 function generateId() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
+
+// Exportar funciones para uso en otros archivos
+window.verificarSesion = function() {
+    const sessionData = JSON.parse(localStorage.getItem('pharmahome_session') || '{}');
+    return sessionData.isLoggedIn === true;
+};
+
+window.obtenerUsuario = function() {
+    return JSON.parse(localStorage.getItem('pharmahome_session') || '{}');
+};

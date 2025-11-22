@@ -10,15 +10,29 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/estilosHome.css">
     <link rel="stylesheet" href="/css/producto.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
 </head>
 <body>
 
     <header id="header"></header>
+
+    <div id="modal-container"></div>
+
+    <!-- Carrito lateral -->
+    <div id="overlay" class="overlay"></div>
+    <aside id="carrito-aside" class="carrito-aside">
+        <div class="carrito-header">
+            <h4>Mi Carrito</h4>
+            <button id="cerrar-carrito">cerrar</button>
+        </div>
+        <ul id="carrito-lista"></ul>
+        <div class="carrito-footer">
+            <p>Total: $<span id="carrito-total">0</span></p>
+            <a href="/pages/pago.html" class="btn btn-success w-100">Finalizar compra</a>
+        </div>
+    </aside>
 
     <main class="container my-5">
         <div class="product-detail-container">
@@ -27,8 +41,8 @@
                 <!-- Columna Izquierda: Galería de Imágenes -->
                 <div class="col-lg-6">
                     <div class="product-gallery">
-                        <div class="product-breadcrumbs">
-                            <a href="#">Tienda</a>  <a href="#">Ibuprofenos</a>  <span>Ibuprofeno 400</span>
+                        <div class="product-breadcrumbs" id="product-breadcrumbs">
+                            <a href="tienda.html">Tienda</a> <span id="breadcrumb-producto">Producto</span>
                         </div>
                         <div class="main-image-container">
                             <img src="/img/F_000001106329.png" alt="Producto Principal" class="main-product-image" id="mainProductImage">
@@ -39,9 +53,9 @@
                 <div class="col-lg-6">
                     <div class="product-details">
                         <!-- Titulo Producto -->
-                        <h1 class="product-title">Ibuprofeno 400</h1>
-                        <span class="product-subtitle venta-libre">VENTA LIBRE</span>
-                        <p class="product-description">
+                        <h1 class="product-title" id="product-title">Ibuprofeno 400</h1>
+                        <span class="product-subtitle venta-libre" id="product-marca">VENTA LIBRE</span>
+                        <p class="product-description" id="product-description">
                             Antiinflamatorio no esteroide (AINE) con efecto analgésico y antipirético. Indicado para aliviar dolores leves a moderados (cabeza, muelas, musculares, menstruales) y reducir la fiebre.
                         </p>
 
@@ -50,19 +64,19 @@
                             <div class="col-md-6">
                                 <div class="info-item mb-3">
                                     <span class="info-label">Precio</span>
-                                    <span class="info-value price">$2200</span>
+                                    <span class="info-value price" id="product-precio">$2200</span>
                                 </div>
                                 <div class="quantity-control mb-3">
                                     <span class="info-label">Cantidad</span>
                                     <div class="quantity-selector">
-                                        <button class="btn-quantity minus">-</button>
-                                        <span class="quantity-value">2</span>
-                                        <button class="btn-quantity plus">+</button>
+                                        <button class="btn-quantity minus" type="button">-</button>
+                                        <span class="quantity-value" id="quantity-value">1</span>
+                                        <button class="btn-quantity plus" type="button">+</button>
                                     </div>
                                 </div>
                                 <div class="cost-summary">
                                     <div class="cost-item"><span>Envío a domicilio</span><span>$2000</span></div>
-                                    <div class="cost-item total"><span>Total</span><span class="total-price">$4200</span></div>
+                                    <div class="cost-item total"><span>Total</span><span class="total-price" id="total-price">$4200</span></div>
                                 </div>
                             </div>
                             <!-- Columna interna DERECHA -->
@@ -77,7 +91,7 @@
                                     <label class="form-label">Seleccioná la farmacia</label>
                                     <div class="custom-select-wrapper">
                                         <div class="custom-select-trigger">
-                                            <span>Farmacia Villegas (1km)</span>
+                                            <span id="selected-pharmacy">Farmacia Villegas (1km)</span>
                                             <i class="fas fa-chevron-down"></i>
                                         </div>
                                         <div class="custom-select-options">
@@ -93,7 +107,7 @@
                         </div>
 
                         <!-- BOTON -->
-                        <button class="btn btn-add-to-cart w-100 mt-auto">
+                        <button class="btn btn-add-to-cart w-100 mt-auto" id="btn-add-to-cart-detalle">
                             <i class="fas fa-shopping-cart me-2"></i>Agregar al carrito
                         </button>
                     </div>
@@ -104,9 +118,10 @@
 
     <footer id="footer"></footer>
 
-    <script src="/js/detalleProducto.js"></script>
-    <script src="/js/footerHeader.js"></script>
-    <script src="/js/producto.js"></script> 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/footerHeader.js"></script>
+    <script src="../js/producto.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/detalleProducto.js"></script>
 </body>
 </html>

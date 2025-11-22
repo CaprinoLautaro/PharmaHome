@@ -27,20 +27,41 @@
                 <a href="/pages/tienda.html" class="nav-link-main mx-3"><i class="fa-solid fa-store me-2"></i>Tienda</a>
                 <a href="/pages/login.html" class="nav-link-main mx-3"><i class="fa-solid fa-receipt me-2"></i>Mis
                     recetas</a>
-                <a href="#" class="nav-link-main mx-3"><i class="fa-solid fa-location-dot me-2"></i>Farmacias</a>
+                <a href="../pages/farmacias.html" class="nav-link-main mx-3"><i class="fa-solid fa-location-dot me-2"></i>Farmacias</a>
             </div>
 
             <!-- Acciones de Carrito y Ayuda  -->
             <div class="d-flex align-items-center">
-                <!--                 <a href="/pages/pago.html" class="btn btn-carrito me-2"><i class="fa-solid fa-cart-shopping"></i><span class="badge">0</span></a>              
- -->
-                <a id="btn-carrito" class="btn btn-carrito me-2">
+                <!-- Botón del Carrito -->
+                <a id="btn-carrito" class="btn btn-carrito me-2 position-relative">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span id="cart-count" class="badge">0</span>
                 </a>
-                <button class="btn btn-ayuda" data-bs-toggle="modal" data-bs-target="#guiaModal"> Guía de usuario
+
+                <button class="btn btn-ayuda" data-bs-toggle="modal" data-bs-target="#guiaModal">
+                    Guía de usuario
                 </button>
             </div>
         </nav>
     </div>
 </div>
+
+<!-- Overlay para el carrito -->
+<div class="overlay"></div>
+
+<!-- Carrito lateral -->
+<aside id="carrito-aside" class="carrito-aside">
+    <div class="carrito-header">
+        <h4>Mi Carrito</h4>
+        <button id="cerrar-carrito">×</button>
+    </div>
+    <div class="carrito-content">
+        <ul id="carrito-lista"></ul>
+    </div>
+    <div class="carrito-footer">
+    <p>Total: $<span id="carrito-total">0</span></p>
+    <button id="finalizar-compra" class="btn btn-success w-100">
+        Finalizar compra
+    </button>
+</div>
+</aside>

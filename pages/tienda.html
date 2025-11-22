@@ -2,282 +2,184 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PharmaHome - Tienda</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PharmaHome - Tienda</title>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Tu CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <!-- Iconos opcionales (Bootstrap Icons) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../css/tienda.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/modal.css">
-
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Iconos opcionales (Bootstrap Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/tienda.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/carrito.css">
 </head>
 
 <body>
 
-<header id="header">
+<header id="header"></header>
 
-</header>
+<div id="modal-container"></div>
 
-  <div class="contenedor">
+<div class="contenedor">
     <form>
-      <h2>Filtros</h2>
-      <details>
-        <summary>Categorias</summary>
-        <label><input type="checkbox"> Cyber Monday</label><br>
-        <label><input type="checkbox"> Ofertas</label><br>
-        <label><input type="checkbox"> Farmaweek</label><br>
-        <label><input type="checkbox"> Medicamentos Venta Libre</label><br>
-        <label><input type="checkbox"> Dermocosmética</label><br>
-        <label><input type="checkbox"> Cuidado Personal</label><br>
-        <label><input type="checkbox"> Cuidado de la Salud</label><br>
-        <label><input type="checkbox"> Nutrición y Deporte</label><br>
-      </details>
-      <details>
-        <summary>Marcas</summary>
-          <label><input type="checkbox"> Fecofar</label><br>
-          <label><input type="checkbox"> Agarol</label><br>
-          <label><input type="checkbox"> Tafirol</label><br>
-          <label><input type="checkbox"> Ibupirac</label><br>
-          <label><input type="checkbox"> Pervinox</label><br>
-          <label><input type="checkbox"> Actron</label><br>
-          <label><input type="checkbox"> Bucoangin</label><br>
-          <label><input type="checkbox"> Buscapina</label><br>
-          <label><input type="checkbox"> Empecid</label><br>
-          <label><input type="checkbox"> Factor ae</label><br>
-          <label><input type="checkbox"> Hepatalgina</label><br>
-          <label><input type="checkbox"> Ibu Evanol</label><br>
-          <label><input type="checkbox"> Merthiolate</label><br>
-          <label><input type="checkbox"> Aerotina</label><br>
-          <label><input type="checkbox"> Caladryl</label><br>
-          <label><input type="checkbox"> Coltyx</label><br>
-          <label><input type="checkbox"> Fabogesic</label><br>
-          <label><input type="checkbox"> Lomecan</label><br>
-          <label><input type="checkbox"> Mylanta</label><br>
-          <label><input type="checkbox"> Oralsone</label><br>
-          <label><input type="checkbox"> Piecidex</label><br>
-      </details>
-      <details>
-        <summary>Precios</summary>
-        <div class="precio-container">
-          <label>Rango de precio:<input type="range" min="0" max="99999" value="1000"></label>
-        </div>
-      </details>
-      <details>
-        <summary>Farmacias
-        </summary>
-          <label><input type="checkbox"> Farmacia Vilela</label><br>
-          <label><input type="checkbox"> Central Oeste</label><br>
-          <label><input type="checkbox"> De Virgilio</label><br>
-          <label><input type="checkbox"> Arabia</label><br>
-      </details>
+        <h2>Filtros</h2>
+        <details>
+            <summary>Categorias</summary>
+            <label><input type="checkbox"> Cyber Monday</label><br>
+            <label><input type="checkbox"> Ofertas</label><br>
+            <label><input type="checkbox"> Farmaweek</label><br>
+            <label><input type="checkbox"> Medicamentos Venta Libre</label><br>
+            <label><input type="checkbox"> Dermocosmética</label><br>
+            <label><input type="checkbox"> Cuidado Personal</label><br>
+            <label><input type="checkbox"> Cuidado de la Salud</label><br>
+            <label><input type="checkbox"> Nutrición y Deporte</label><br>
+        </details>
+        <details>
+            <summary>Marcas</summary>
+            <label><input type="checkbox"> Fecofar</label><br>
+            <label><input type="checkbox"> Agarol</label><br>
+            <label><input type="checkbox"> Tafirol</label><br>
+            <label><input type="checkbox"> Ibupirac</label><br>
+            <label><input type="checkbox"> Pervinox</label><br>
+            <label><input type="checkbox"> Actron</label><br>
+            <label><input type="checkbox"> Bucoangin</label><br>
+            <label><input type="checkbox"> Buscapina</label><br>
+            <label><input type="checkbox"> Empecid</label><br>
+            <label><input type="checkbox"> Factor ae</label><br>
+            <label><input type="checkbox"> Hepatalgina</label><br>
+            <label><input type="checkbox"> Ibu Evanol</label><br>
+            <label><input type="checkbox"> Merthiolate</label><br>
+            <label><input type="checkbox"> Aerotina</label><br>
+            <label><input type="checkbox"> Caladryl</label><br>
+            <label><input type="checkbox"> Coltyx</label><br>
+            <label><input type="checkbox"> Fabogesic</label><br>
+            <label><input type="checkbox"> Lomecan</label><br>
+            <label><input type="checkbox"> Mylanta</label><br>
+            <label><input type="checkbox"> Oralsone</label><br>
+            <label><input type="checkbox"> Piecidex</label><br>
+        </details>
+        <details>
+            <summary>Precios</summary>
+            <div class="precio-container">
+                <label>Rango de precio:<input type="range" min="0" max="99999" value="1000"></label>
+            </div>
+        </details>
+        <details>
+            <summary>Farmacias
+            </summary>
+            <label><input type="checkbox"> Farmacia Vilela</label><br>
+            <label><input type="checkbox"> Central Oeste</label><br>
+            <label><input type="checkbox"> De Virgilio</label><br>
+            <label><input type="checkbox"> Arabia</label><br>
+        </details>
     </form>
 
     <div class="productos">
-      <h3>Mis recetados</h3>
+        <h3>Mis recetados</h3>
 
-      <div id="carouselMulti" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+        <div id="carouselMulti" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
 
-          <!-- SLIDE 1 -->
-          <div class="carousel-item active">
-            <div class="contenedor-card-productos">
-              <div class="card-productos">
-                <img src="../img/Lotrial.jpg" alt="Lotrial">
-                <p>Lotrial 10mg® - 20 comprimidos</p>
-                <p style="font-weight: bold;">MEGATONE</p>
-                <p>Farmacia Vilela, San Justo</p>
-                <label>$14.000</label>
-                <button class="boton-carrito" type="submit"
-                  onclick="agregarAlCarrito({ id: 1, nombre: 'Lotrial 10mg - 20 comprimidos', precio: 14000 })">
-                  Agregar al carrito</button>
-              </div>
-              <div class="card-productos">
-                <img src="../img/rivotril.webp" alt="Rivotril">
-                <p>Rivotril® 2mg - 30 comprimidos</p>
-                <p style="font-weight: bold;">ROCHE</p>
-                <p>Farmacia Vilela, San Justo</p>
-                <label style="text-decoration: line-through">$44.000 </label><label> - $30.800</label>
-                <button class="boton-carrito" type="submit">Agregar al carrito</button>
-              </div>
-              <div class="card-productos">
-                <img src="../img/carvedilol.jpg" alt="Cardevilol">
-                <p>Cardevilol® 6 mg - 30 comprimidos</p>
-                <p style="font-weight: bold;">BAGÓ</p>
-                <p>Farmacia Vilela, San Justo</p>
-                <label>$12.000</label>
-                <button class="boton-carrito" type="submit">Agregar al carrito</button>
-              </div>
+                <!-- SLIDE 1 -->
+                <div class="carousel-item active">
+                    <div class="contenedor-card-productos">
+                        <div class="card-productos" data-id="1" data-nombre="Lotrial 10mg® - 20 comprimidos" data-marca="MEGATONE" data-farmacia="Farmacia Vilela, San Justo" data-precio="14000" data-img="../img/Lotrial.jpg" data-descripcion="Medicamento de uso con prescripción médica. Indicado para tratar afecciones específicas según la recomendación profesional. Su uso debe seguir estrictamente las indicaciones del profesional de la salud y no se recomienda automedicación.">
+                            <img src="../img/Lotrial.jpg" alt="Lotrial">
+                            <p style="font-weight: bold;">Lotrial 10mg® - 20 comprimidos</p>
+                            <p>MEGATONE</p>
+                            <p>Farmacia Vilela, San Justo</p>
+                            <label>$14.000</label>
+                            <button class="boton-carrito" type="button">Agregar al carrito</button>
+                        </div>
+                        <div class="card-productos" data-id="2" data-nombre="Rivotril® 2mg - 30 comprimidos" data-marca="ROCHE" data-farmacia="Farmacia Vilela, San Justo" data-precio="30800" data-img="../img/rivotril.webp" data-descripcion="Medicamento de uso con prescripción médica. Indicado para tratar afecciones específicas según la recomendación profesional. Su uso debe seguir estrictamente las indicaciones del profesional de la salud y no se recomienda automedicación.">
+                            <img src="../img/rivotril.webp" alt="Rivotril">
+                            <p style="font-weight: bold;">Rivotril® 2mg - 30 comprimidos</p>
+                            <p>ROCHE</p>
+                            <p>Farmacia Vilela, San Justo</p>
+                            <label style="text-decoration: line-through">$44.000 </label><label> - $30.800</label>
+                            <button class="boton-carrito" type="button">Agregar al carrito</button>
+                        </div>
+                        <div class="card-productos" data-id="3" data-nombre="Cardevilol® 6 mg - 30 comprimidos" data-marca="BAGÓ" data-farmacia="Farmacia Vilela, San Justo" data-precio="12000" data-img="../img/carvedilol.jpg" data-descripcion="Medicamento de uso con prescripción médica. Indicado para tratar afecciones específicas según la recomendación profesional. Su uso debe seguir estrictamente las indicaciones del profesional de la salud y no se recomienda automedicación.">
+                            <img src="../img/carvedilol.jpg" alt="Cardevilol">
+                            <p style="font-weight: bold;">Cardevilol® 6 mg - 30 comprimidos</p>
+                            <p>BAGÓ</p>
+                            <p>Farmacia Vilela, San Justo</p>
+                            <label>$12.000</label>
+                            <button class="boton-carrito" type="button">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="carousel-item">
+                    <div class="contenedor-card-productos">
+                        <div class="card-productos" data-id="3" data-nombre="Cardevilol® 6 mg - 30 comprimidos" data-marca="BAGÓ" data-farmacia="Farmacia Vilela, San Justo" data-precio="12000" data-img="../img/carvedilol.jpg" data-descripcion="Medicamento de uso con prescripción médica. Indicado para tratar afecciones específicas según la recomendación profesional. Su uso debe seguir estrictamente las indicaciones del profesional de la salud y no se recomienda automedicación.">
+                            <img src="../img/carvedilol.jpg" alt="Cardevilol">
+                            <p style="font-weight: bold;">Cardevilol® 6 mg - 30 comprimidos</p>
+                            <p>BAGÓ</p>
+                            <p>Farmacia Vilela, San Justo</p>
+                            <label>$12.000</label>
+                            <button class="boton-carrito" type="button">Agregar al carrito</button>
+                        </div>
+                        <div class="card-productos" data-id="1" data-nombre="Lotrial 10mg® - 20 comprimidos" data-marca="MEGATONE" data-farmacia="Farmacia Vilela, San Justo" data-precio="14000" data-img="../img/Lotrial.jpg" data-descripcion="Medicamento de uso con prescripción médica. Indicado para tratar afecciones específicas según la recomendación profesional. Su uso debe seguir estrictamente las indicaciones del profesional de la salud y no se recomienda automedicación.">
+                            <img src="../img/Lotrial.jpg" alt="Lotrial">
+                            <p style="font-weight: bold;">Lotrial 10mg® - 20 comprimidos</p>
+                            <p>MEGATONE</p>
+                            <p>Farmacia Vilela, San Justo</p>
+                            <label>$14.000</label>
+                            <button class="boton-carrito" type="button">Agregar al carrito</button>
+                        </div>
+                        <div class="card-productos" data-id="2" data-nombre="Rivotril® 2mg - 30 comprimidos" data-marca="ROCHE" data-farmacia="Farmacia Vilela, San Justo" data-precio="30800" data-img="../img/rivotril.webp" data-descripcion="Medicamento de uso con prescripción médica. Indicado para tratar afecciones específicas según la recomendación profesional. Su uso debe seguir estrictamente las indicaciones del profesional de la salud y no se recomienda automedicación.">
+                            <img src="../img/rivotril.webp" alt="Rivotril">
+                            <p style="font-weight: bold;">Rivotril® 2mg - 30 comprimidos</p>
+                            <p>ROCHE</p>
+                            <p>Farmacia Vilela, San Justo</p>
+                            <label style="text-decoration: line-through">$44.000 </label><label> - $30.800</label>
+                            <button class="boton-carrito" type="button">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
 
-          <!-- SLIDE 2 -->
-          <div class="carousel-item">
-            <div class="contenedor-card-productos">
-              <div class="card-productos">
-                <img src="../img/carvedilol.jpg" alt="Cardevilol">
-                <p>Cardevilol® 6 mg - 30 comprimidos</p>
-                <p style="font-weight: bold;">BAGÓ</p>
-                <p>Farmacia Vilela, San Justo</p>
-                <label>$12.000</label>
-                <button class="boton-carrito" type="submit">Agregar al carrito</button>
-              </div>
-              <div class="card-productos">
-                <img src="../img/Lotrial.jpg" alt="Lotrial">
-                <p>Lotrial 10mg® - 20 comprimidos</p>
-                <p style="font-weight: bold;">MEGATONE</p>
-                <p>Farmacia Vilela, San Justo</p>
-                <label>$14.000</label>
-                <button class="boton-carrito" type="submit">Agregar al carrito</button>
-              </div>
-              <div class="card-productos">
-                <img src="../img/rivotril.webp" alt="Rivotril">
-                <p>Rivotril® 2mg - 30 comprimidos</p>
-                <p style="font-weight: bold;">ROCHE</p>
-                <p>Farmacia Vilela, San Justo</p>
-                <label style="text-decoration: line-through">$44.000 </label><label> - $30.800</label>
-                <button class="boton-carrito" type="submit">Agregar al carrito</button>
-              </div>
-            </div>
-          </div>
-
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMulti" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselMulti" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
 
-        <!-- Controles -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMulti" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselMulti" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-
-      <h3>Venta libre</h3>
-      <div class="contenedor-card-productos">
-        <div class="card-productos">
-          <img src="../img/tafirolplus.webp" alt="Tafirol">
-          <p>Tafirol plus® - 8 comprimidos</p>
-          <p style="font-weight: bold;">TAFIROL</p>
-          <p>Farmacia Villegas, San justo</p>
-          <label>$24.000</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 7, nombre: 'Tafirol Plus - 8 comprimidos', precio: 24000 })">
-            Agregar al carrito</button>
-        </div>
-        <div class="card-productos">
-          <img src="../img/buscapinaduo.jpg" alt="Buscapina">
-          <p>Buscapina® - 20 comprimidos</p>
-          <p style="font-weight: bold;">BUSCAPINA</p>
-          <p>Central Oeste, Haedo</p>
-          <label>$9.525</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 8, nombre: 'Buscapina - 20 comprimidos', precio: 9525 })">
-            Agregar al carrito</button>
-        </div>
-        <div class="card-productos">
-          <img src="../img/omeprazol.jpg" alt="Omeprazol">
-          <p>Omeprazol® x 30 cápsulas</p>
-          <p style="font-weight: bold;">APOTEX</p>
-          <p>Central Oeste, Haedo</p>
-          <label>$ 3.629</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 9, nombre: 'Omeprazol - 30 cápsulas', precio: 3629 })">
-            Agregar al carrito</button>
-        </div>
-        <div class="card-productos">
-          <img src="../img/ibu400.jpg" alt="Ibu400">
-          <p>Ibu 400® – 30 comprimidos </p>
-          <p style="font-weight: bold;">IBU 400</p>
-          <p>Farmacia Vilela, San justo</p>
-          <label style="text-decoration: line-through;">$24.000</label><label>- $20.400</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 10, nombre: 'IBU 400 – 30 comprimidos', precio: 20400 })">
-            Agregar al carrito</button>
-        </div>
-        <div class="card-productos">
-          <img src="../img/alernix.webp" alt="Alernix">
-          <p>Alernix® x 20 capsula blanda</p>
-          <p style="font-weight: bold;">ALErNIX</p>
-          <p>Central Oeste, Haedo</p>
-          <label>$6.525</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 11, nombre: 'Alernix - 20 cápsulas blandas', precio: 6525 })">
-            Agregar al carrito</button>
-        </div>
-        <div class="card-productos">
-          <img src="../img/aziatop.jpg" alt="Aziatop">
-          <p>Aziatop® x 14 comprimidos</p>
-          <p style="font-weight: bold;">AZIATOP</p>
-          <p>Farmacia Vilela, San justo</p>
-          <label>$4.525</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 12, nombre: 'Aziatop - 14 comprimidos', precio: 4525 })">
-            Agregar al carrito</button>
-        </div>
-
-
-
-        <div class="card-productos">
-          <img src="../img/diclofenac.webp" alt=Diclofenac">
-          <p>Diclofenac® x 20 comprimidos</p>
-          <p style="font-weight: bold;">DICLOFENAC</p>
-          <p>Farmacia Vilela, San Justo</p>
-          <label>$3.870</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 13, nombre: 'Diclofenac - 20 comprimidos', precio: 3870 })">
-            Agregar al carrito</button>
-        </div>
-        <div class="card-productos">
-          <img src="../img/diclofenac.jpg" alt="Diclofenac-gel">
-          <p>Diclofenac Gel x 45g</p>
-          <p style="font-weight: bold;">FITERMAN</p>
-          <p>Farmacia Vilela, San Justo</p>
-          <label>$2.950</label>
-          <button class="boton-carrito" type="submit"
-            onclick="agregarAlCarrito({ id: 14, nombre: 'Diclofenac Gel x 45g', precio: 2950 })">
-            Agregar al carrito</button>
-        </div>
-      </div>
+        <h3>Venta libre</h3>
+        <!-- Este contenedor será llenado dinámicamente por tienda.js -->
+        <div id="contenedorVentaLibre" class="contenedor-card-productos"></div>
     </div>
-  </div>
+</div>
 
 
-  <div id="overlay" class="overlay"></div>
 
-  <aside id="carrito-aside" class="carrito-aside">
-    <div class="carrito-header">
-      <h4>Mi Carrito</h4>
-      <button id="cerrar-carrito">cerrar</button>
-    </div>
-
-    <ul id="carrito-lista"></ul>
-
-    <div class="carrito-footer">
-      <p>Total: $<span id="carrito-total">0</span></p>
-      <a href="/pages/pago.html" class="btn btn-success w-100">Finalizar compra</a>
-    </div>
-  </aside>
-
-
-  <div id="modal-container"> </div>
-
-  <footer id="footer"></footer>
-
-
-</body>
+<footer id="footer"></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../js/footerHeader.js"></script>
 <script src="../js/auth.js"></script>
 <script src="../js/carrito.js"></script>
+<script src="../js/tienda.js"></script>
 
+<script>
+    // Cargar el carrito en todas las páginas
+    fetch('../components/carrito.html')
+        .then(response => response.text())
+        .then(html => {
+            document.body.insertAdjacentHTML('beforeend', html);
+        });
+</script>
+</body>
 </html>

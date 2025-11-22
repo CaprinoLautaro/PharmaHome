@@ -1,5 +1,8 @@
+// producto.js
 document.addEventListener('DOMContentLoaded', function () {
     const customSelect = document.querySelector('.custom-select-wrapper');
+    if (!customSelect) return;
+
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-select-option');
     const triggerText = trigger.querySelector('span');
@@ -10,9 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     options.forEach(option => {
         option.addEventListener('click', () => {
-            triggerText.textContent = option.textContent; 
+            triggerText.textContent = option.textContent;
             customSelect.classList.remove('open');
-
         });
     });
 

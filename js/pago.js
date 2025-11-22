@@ -1,10 +1,22 @@
-// pago.js
+// pago.js - VERSIÓN COMPLETA CON CARRITO REAL
 document.addEventListener('DOMContentLoaded', function() {
+    // Cargar carrito desde localStorage
+    let carrito = [];
+    const carritoGuardado = localStorage.getItem('carrito');
+    if (carritoGuardado) {
+        try {
+            carrito = JSON.parse(carritoGuardado);
+        } catch (e) {
+            console.error('Error al cargar el carrito:', e);
+            carrito = [];
+        }
+    }
+
     // Elementos de la barra de progreso
     const pasos = document.querySelectorAll('.paso');
     const lineas = document.querySelectorAll('.linea');
     
-    // Secciones principales (ahora son 4 pasos)
+    // Secciones principales
     const seccionPaso1 = document.getElementById('paso-1');
     const seccionPaso2 = document.getElementById('paso-2');
     const seccionPaso3 = document.getElementById('paso-3');
@@ -12,7 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Elementos del Paso 1 (Carrito)
     const botonContinuarCarrito = document.querySelector('.boton-continuar-carrito');
+    const listaProductos = document.querySelector('.lista-productos');
     
+    // Elementos del Resumen
+    const detallesResumen = document.querySelector('.detalles-resumen');
+    const totalesResumen = document.querySelector('.totales-resumen');
+    const totalAPagar = document.querySelector('.total-a-pagar');
+
     // Elementos del Paso 2 (Pago)
     const metodoPago = document.querySelector('.metodo-pago');
     const formularioTarjeta = document.getElementById('formulario-tarjeta');
@@ -34,19 +52,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let pasoActual = 1;
     let metodoPagoSeleccionado = null;
 
-    // Inicializar - mostrar solo el paso 1 (Carrito)
+    // Inicializar
     mostrarPaso(1);
+    actualizarCarritoEnPago();
+    actualizarResumenEnPago();
 
     // ============================================
-    // PASO 1: Carrito
+    // PASO 1: Carrito Real
     // ============================================
     
     botonContinuarCarrito?.addEventListener('click', function() {
+        if (carrito.length === 0) {
+            alert('Tu carrito está vacío. Agrega productos para continuar.');
+            return;
+        }
         mostrarPaso(2);
     });
-
-    // Funcionalidad del carrito
-    inicializarCarrito();
 
     // ============================================
     // PASO 2: Selección de método de pago
@@ -57,24 +78,20 @@ document.addEventListener('DOMContentLoaded', function() {
             metodoPagoSeleccionado = this.getAttribute('data-metodo');
             
             if (metodoPagoSeleccionado === 'tarjeta') {
-                // Ocultar métodos y mostrar formulario de tarjeta
                 metodoPago.classList.add('desactivado');
                 formularioTarjeta.classList.remove('desactivado');
             } else if (metodoPagoSeleccionado === 'mercadopago') {
-                // Ir directamente al paso 3 (Envío)
                 mostrarPaso(3);
             }
         });
     });
 
-    // Volver a métodos de pago desde formulario de tarjeta
     botonVolverMetodos?.addEventListener('click', function() {
         formularioTarjeta.classList.add('desactivado');
         metodoPago.classList.remove('desactivado');
         metodoPagoSeleccionado = null;
     });
 
-    // Continuar con pago de tarjeta
     botonPagarTarjeta?.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -91,19 +108,170 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         
         if (validarFormularioEnvio()) {
+            // Guardar información de envío antes de continuar
+            guardarInformacionEnvio();
             mostrarPaso(4);
         }
     });
 
-    // Volver al paso 2 desde envío
     botonVolverPago?.addEventListener('click', function() {
-        // Resetear el estado del paso 2 antes de volver
         resetearPaso2();
         mostrarPaso(2);
     });
 
     // ============================================
-    // FUNCIONES AUXILIARES
+    // FUNCIONES DEL CARRITO REAL
+    // ============================================
+    
+    function actualizarCarritoEnPago() {
+        if (!listaProductos) return;
+        
+        if (carrito.length === 0) {
+            listaProductos.innerHTML = `
+                <div class="carrito-vacio">
+                    <i class="fas fa-shopping-cart" style="font-size: 4rem; color: #6c757d; margin-bottom: 20px;"></i>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>Agrega algunos productos para continuar</p>
+                    <button class="boton" onclick="window.location.href='../pages/tienda.html'">
+                        <i class="fas fa-arrow-left"></i> Volver a Comprar
+                    </button>
+                </div>
+            `;
+            if (botonContinuarCarrito) {
+                botonContinuarCarrito.disabled = true;
+                botonContinuarCarrito.classList.add('boton-deshabilitado');
+            }
+            return;
+        }
+
+        listaProductos.innerHTML = '';
+        
+        carrito.forEach((producto, index) => {
+            const productoElement = document.createElement('div');
+            productoElement.className = 'producto-carrito';
+            productoElement.innerHTML = `
+                <div class="producto-imagen">
+                    <img src="${producto.img || '../img/placeholder.jpg'}" alt="${producto.nombre}" onerror="this.src='../img/placeholder.jpg'">
+                </div>
+                <div class="producto-info">
+                    <h4>${producto.nombre}</h4>
+                    ${producto.marca ? `<p class="producto-desc">${producto.marca}</p>` : ''}
+                    ${producto.farmacia ? `<p class="producto-farmacia">${producto.farmacia}</p>` : ''}
+                    <div class="producto-controls">
+                        <button class="btn-cantidad" data-accion="restar" data-index="${index}">-</button>
+                        <span class="cantidad">${producto.cantidad}</span>
+                        <button class="btn-cantidad" data-accion="sumar" data-index="${index}">+</button>
+                    </div>
+                </div>
+                <div class="producto-precio">
+                    <span class="precio-unitario">$${producto.precio} c/u</span>
+                    <span class="precio-total">$${producto.precio * producto.cantidad}</span>
+                    <button class="btn-eliminar" data-index="${index}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+            listaProductos.appendChild(productoElement);
+        });
+
+        if (botonContinuarCarrito) {
+            botonContinuarCarrito.disabled = false;
+            botonContinuarCarrito.classList.remove('boton-deshabilitado');
+        }
+
+        reinicializarEventListenersCarrito();
+    }
+
+    function reinicializarEventListenersCarrito() {
+        // Botones de cantidad
+        document.querySelectorAll('.btn-cantidad').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const accion = this.getAttribute('data-accion');
+                const index = parseInt(this.getAttribute('data-index'));
+                
+                if (accion === 'sumar') {
+                    carrito[index].cantidad++;
+                } else if (accion === 'restar' && carrito[index].cantidad > 1) {
+                    carrito[index].cantidad--;
+                }
+                
+                guardarCarrito();
+                actualizarCarritoEnPago();
+                actualizarResumenEnPago();
+            });
+        });
+
+        // Botones de eliminar
+        document.querySelectorAll('.btn-eliminar').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                carrito.splice(index, 1);
+                guardarCarrito();
+                actualizarCarritoEnPago();
+                actualizarResumenEnPago();
+            });
+        });
+    }
+
+    function actualizarResumenEnPago() {
+        if (!detallesResumen || !totalesResumen || !totalAPagar) return;
+        
+        let subtotal = 0;
+        let envio = 500; // Costo fijo de envío
+        
+        // Actualizar detalles de productos
+        detallesResumen.innerHTML = '';
+        carrito.forEach(producto => {
+            const productoTotal = producto.precio * producto.cantidad;
+            subtotal += productoTotal;
+            
+            const detalle = document.createElement('p');
+            detalle.innerHTML = `${producto.nombre} x${producto.cantidad} <span>$${productoTotal}</span>`;
+            detallesResumen.appendChild(detalle);
+        });
+        
+        // Actualizar totales
+        totalesResumen.innerHTML = `
+            <p>Subtotal: <span>$${subtotal}</span></p>
+            <p>Envío: <span>$${envio}</span></p>
+        `;
+        
+        const total = subtotal + envio;
+        totalAPagar.innerHTML = `<p>TOTAL A PAGAR <span>$${total}</span></p>`;
+    }
+
+    function guardarCarrito() {
+        try {
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            // Actualizar también el badge del carrito si existe
+            const badge = document.getElementById('cart-count');
+            if (badge) {
+                const totalItems = carrito.reduce((sum, producto) => sum + producto.cantidad, 0);
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        } catch (e) {
+            console.error('Error al guardar el carrito:', e);
+        }
+    }
+
+    function guardarInformacionEnvio() {
+        // Guardar información de envío para posible uso futuro
+        const infoEnvio = {
+            nombre: document.getElementById('nombre').value,
+            apellido: document.getElementById('apellido').value,
+            email: document.getElementById('email').value,
+            telefono: document.getElementById('telefono').value,
+            direccion: document.getElementById('direccion').value,
+            ciudad: document.getElementById('ciudad').value,
+            cp: document.getElementById('cp').value,
+            provincia: document.getElementById('provincia').value
+        };
+        localStorage.setItem('infoEnvio', JSON.stringify(infoEnvio));
+    }
+
+    // ============================================
+    // FUNCIONES AUXILIARES EXISTENTES (modificadas)
     // ============================================
     
     function mostrarPaso(numeroPaso) {
@@ -134,71 +302,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (numeroPaso === 2) {
             resetearPaso2();
         }
-    }
-
-    function inicializarCarrito() {
-        // Botones de cantidad
-        document.querySelectorAll('.btn-cantidad').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const accion = this.getAttribute('data-accion');
-                const producto = this.closest('.producto-carrito');
-                const cantidadElement = producto.querySelector('.cantidad');
-                let cantidad = parseInt(cantidadElement.textContent);
-                
-                if (accion === 'sumar') {
-                    cantidad++;
-                } else if (accion === 'restar' && cantidad > 1) {
-                    cantidad--;
-                }
-                
-                cantidadElement.textContent = cantidad;
-                actualizarPrecioProducto(producto);
-                actualizarResumen();
-            });
-        });
-
-        // Botones de eliminar
-        document.querySelectorAll('.btn-eliminar').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const producto = this.closest('.producto-carrito');
-                producto.remove();
-                actualizarResumen();
-                
-                // Si no quedan productos, mostrar mensaje
-                if (document.querySelectorAll('.producto-carrito').length === 0) {
-                    mostrarCarritoVacio();
-                }
-            });
-        });
-    }
-
-    function actualizarPrecioProducto(producto) {
-        const cantidad = parseInt(producto.querySelector('.cantidad').textContent);
-        const precioUnitario = parseInt(producto.querySelector('.precio-unitario').textContent.replace('$', '').replace(' c/u', ''));
-        const precioTotalElement = producto.querySelector('.precio-total');
         
-        const precioTotal = cantidad * precioUnitario;
-        precioTotalElement.textContent = `$${precioTotal}`;
+        // En el paso 4, vaciar el carrito
+        if (numeroPaso === 4) {
+            vaciarCarrito();
+        }
     }
 
-    function actualizarResumen() {
-        // Aquí puedes implementar la actualización del resumen
-        // cuando cambian las cantidades o se eliminan productos
-        console.log('Actualizando resumen...');
-    }
-
-    function mostrarCarritoVacio() {
-        const carritoContainer = document.querySelector('.carrito-container');
-        carritoContainer.innerHTML = `
-            <div class="carrito-vacio">
-                <i class="fas fa-shopping-cart" style="font-size: 4rem; color: #6c757d; margin-bottom: 20px;"></i>
-                <h3>Tu carrito está vacío</h3>
-                <p>Agrega algunos productos para continuar</p>
-                <button class="boton" onclick="window.location.href='../pages/tienda.html'">
-                    <i class="fas fa-arrow-left"></i> Volver a Comprar
-                </button>
-            </div>
-        `;
+    function vaciarCarrito() {
+        carrito = [];
+        guardarCarrito();
     }
 
     function actualizarTituloResumen(numeroPaso) {
@@ -214,20 +327,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function resetearPaso2() {
-        // Ocultar formulario de tarjeta si está visible
         formularioTarjeta.classList.add('desactivado');
-        // Mostrar métodos de pago
         metodoPago.classList.remove('desactivado');
-        // Resetear selección de método
         metodoPagoSeleccionado = null;
-        // Limpiar formulario de tarjeta
         document.getElementById('form-tarjeta')?.reset();
     }
 
     function actualizarProgreso() {
         console.log(`Actualizando progreso al paso ${pasoActual}`);
         
-        // Actualizar pasos
         pasos.forEach((paso, index) => {
             const numeroPaso = parseInt(paso.getAttribute('data-paso'));
             if (numeroPaso <= pasoActual) {
@@ -237,7 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Actualizar líneas
         lineas.forEach((linea, index) => {
             const numeroLinea = parseInt(linea.getAttribute('data-linea'));
             if (numeroLinea < pasoActual) {
@@ -255,7 +362,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const expiracion = document.getElementById('expiracion').value;
         const cvc = document.getElementById('cvc').value;
 
-        // Validar 16 dígitos (sin contar espacios)
         if (!soloNumeros || soloNumeros.length !== 16) {
             alert('Por favor ingresa un número de tarjeta válido (16 dígitos)');
             return false;
@@ -291,7 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Validar email
         const email = document.getElementById('email').value;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
@@ -302,10 +407,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Formateadores de input
+    // Formateadores de input (mantener igual)
     document.getElementById('nro-tarjeta')?.addEventListener('input', function(e) {
         let cursorPosition = e.target.selectionStart;
-        
         let cleanValue = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         cleanValue = cleanValue.substring(0, 16);
         
@@ -318,7 +422,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         e.target.value = formattedValue;
-        
         let addedSpaces = Math.floor(cursorPosition / 4);
         let newCursorPosition = cursorPosition + addedSpaces;
         e.target.setSelectionRange(newCursorPosition, newCursorPosition);
@@ -336,10 +439,13 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.value = e.target.value.replace(/[^0-9]/gi, '');
     });
 
-    // Generar número de pedido aleatorio para la confirmación
+    // Generar número de pedido aleatorio
     function generarNumeroPedido() {
         const numero = Math.floor(100000 + Math.random() * 900000);
-        document.getElementById('numero-pedido').textContent = numero;
+        const elemento = document.getElementById('numero-pedido');
+        if (elemento) {
+            elemento.textContent = numero;
+        }
     }
 
     generarNumeroPedido();
