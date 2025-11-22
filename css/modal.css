@@ -11,12 +11,12 @@
 }
 
 .modal-backdrop.show {
-    opacity: 0.6; 
+    opacity: 0.6;
     backdrop-filter: blur(3px);
 }
 
 .modal.fade .modal-dialog {
-    transform: translateY(-50px) scale(0.95); 
+    transform: translateY(-50px) scale(0.95);
     transition: all 0.3s ease-out;
 }
 
@@ -82,10 +82,12 @@
     border-left-color: #6c757d;
 }
 
-/* Números de paso con efecto */
-.guia-step-number {
-    width: 50px;
-    height: 50px;
+.guia-step-icon {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cce9e4;
+    color: #164941;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,92 +99,227 @@
     transform: scale(1.15) rotate(5deg);
 }
 
-/* Títulos de las cards */
-.guia-step-card .card-title {
-    color: #2c3e50;
-    font-size: 1.1rem;
+.guia-step-text strong {
+    display: block;
+    color: var(--dark-text);
 }
 
-.guia-step-card .card-text {
-    font-size: 0.9rem;
-    line-height: 1.5;
+.guia-step-text small {
+    color: #6c757d;
 }
 
-/* Badge de título */
-.modal-body .badge {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+.dudas-title {
+    font-size: 1.8rem;
+    color: #333;
 }
 
-/* Botón de FAQ mejorado */
-.btn-primary.btn-lg {
+.btn-faq {
     background: var(--primary-gradient);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
     border: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    border-radius: 50px;
+    padding: 0.8rem 2.5rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.3s;
 }
 
-.btn-primary.btn-lg::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
+.btn-faq:hover {
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
+}
+
+
+
+.carrito-aside {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right .3s ease;
+    z-index: 2000;
+}
+
+.carrito-aside.open {
+    right: 0;
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#carrito-lista {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+    /* opcional: quita los puntos */
+}
+
+#carrito-lista li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Caja de cantidad */
+.cantidad-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botones + y - */
+.cantidad-box button {
+    border: none;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
 }
 
-.btn-primary.btn-lg:hover::before {
-    width: 300px;
-    height: 300px;
+/* Hover para + y - */
+.cantidad-box button:hover {
+    background: #bcbcbc;
 }
 
-.btn-primary.btn-lg:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(140, 82, 255, 0.4);
+/* El número */
+.cantidad-box span {
+    font-size: 16px;
+    font-weight: bold;
+    justify-self: center;
 }
 
-/* Animación de entrada para las cards */
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btn-eliminar {
+    background: red;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+    align-self: center;
 }
 
-.modal.show .guia-step-card {
-    animation: slideInUp 0.5s ease forwards;
+.btn-eliminar:hover {
+    background: darkred;
 }
 
-.modal.show .guia-step-card:nth-child(1) { animation-delay: 0.1s; }
-.modal.show .guia-step-card:nth-child(2) { animation-delay: 0.2s; }
-.modal.show .guia-step-card:nth-child(3) { animation-delay: 0.3s; }
-.modal.show .guia-step-card:nth-child(4) { animation-delay: 0.4s; }
-.modal.show .guia-step-card:nth-child(5) { animation-delay: 0.5s; }
+.btn.btn-success.w-100 {
+    border-radius: 20px !important;
+    /* podés subirlo a 30px si querés más curva */
+}
 
-/* Responsive */
+#cerrar-carrito {
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 1;
+}
+
+#cerrar-carrito:hover {
+    background-color: #bcbcbc;
+}
+
+#carrito-aside {
+    width: 350px;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px;
+    border-left: 2px solid #ddd;
+    transition: transform 0.35s ease-in-out;
+    transform: translateX(100%);
+    /* INICIALMENTE OCULTO */
+    scrollbar-width: none;
+}
+
+#carrito-aside.open {
+    transform: translateX(0);
+    /* EN PC SE ABRE DESDE LA DERECHA */
+}
+
+.carrito-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+/* ================================
+   ASIDE – VERSIÓN CELULAR
+================================ */
 @media (max-width: 768px) {
-    .modal-body {
-        padding: 1.5rem !important;
+    #carrito-aside {
+        width: 100%;
+        height: 50%;
+        top: -50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        border-left: none;
+        border-top: 2px solid #ddd;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        /* OCULTO HACIA ABAJO */
     }
-    
-    .guia-step-number {
-        width: 45px;
-        height: 45px;
+
+    #carrito-aside.open {
+        transform: translateY(0);
+        /* SUBE COMO PANEL DESDE ABAJO */
     }
-    
-    .guia-step-card .card-title {
-        font-size: 1rem;
+
+    #carrito-lista li {
+        list-style: none;
+        padding: 10px 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
+
+     .carrito-footer {
+        position: static !important;
+    }
+
 }
 
+/* ================================
+   SCROLL INTERNO
+================================ */
+/* #carrito-lista {
+    max-height: 30vh;
+    overflow-y: auto;
+    padding-right: 10px;
+} */
+
+/* Alinear contenido del LI */
