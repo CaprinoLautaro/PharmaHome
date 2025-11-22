@@ -7,48 +7,58 @@
     --dark-text: #212529;
     --light-text: #ffffff;
     --star-color: #f8b400; 
-    --bg-overlay-color: rgba(248, 249, 250, 0.85); 
+    --bg-overlay-color: rgba(248, 249, 250, 0.95); 
     --main-bg-color: #e9eef7; 
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--main-bg-color);
-    background-image: url('/img/imagen_pareja.png');
+    background-image: url('../img/imagen_pareja.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     color: var(--dark-text);
 }
-
-
 
 /* ---- CONTENIDO PRINCIPAL ---- */
 .main-content-wrapper {
     background-color: var(--bg-overlay-color);
     backdrop-filter: blur(5px);
     border-radius: 25px;
-    padding: 3rem;
+    padding: 2rem;
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    margin: 1rem 0;
 }
 
 .primera-vez-section h1 {
     color: var(--dark-text);
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.primera-vez-section .lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-ayuda-main {
     background: var(--primary-gradient);
     color: var(--light-text);
-    padding: 0.8rem 2.5rem;
+    padding: 0.8rem 2rem;
     border-radius: 30px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: none;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
 }
+
 .btn-ayuda-main:hover {
     color: var(--light-text);
     transform: scale(1.05);
@@ -63,6 +73,12 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     max-width: 400px;
     width: 100%;
+    margin: 0 auto;
+}
+
+.guia-usuarios-card h5 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .subtitulo-guia {
@@ -71,12 +87,9 @@ body {
     margin-bottom: 1.5rem;
 }
 
-
-
-
 .step-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     background-color: #f8f9fa;
     padding: 1rem;
@@ -90,12 +103,36 @@ body {
 
 .step-item .fa-square-check {
     color: var(--secondary-color);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.step-item div {
+    flex: 1;
+}
+
+.step-item strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.step-item small {
+    font-size: 0.85rem;
+    color: #6c757d;
+    line-height: 1.4;
 }
 
 /* ---- SECCIÓN FARMACIAS DESTACADAS Y CARRUSEL ---- */
 .farmacias-destacadas-section {
-    position: relative; 
+    position: relative;
+    margin-top: 3rem;
+}
+
+.farmacias-destacadas-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .farmacia-card {
@@ -104,62 +141,40 @@ body {
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     background-color: #fff;
-    margin: 0 10px; 
+    margin: 0 5px;
+    height: 100%;
 }
-
-.farmacia-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.rating-stars {
-    color: var(--star-color);
-}
-
-.btn-ver-tienda {
-    background: var(--primary-gradient);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 0.6rem 2rem;
-    font-weight: 500;
-    transition: transform 0.2s;
-}
-.btn-ver-tienda:hover {
-    color: white;
-    transform: scale(1.05);
-}
-
-/* ---- SECCIÓN FARMACIAS DESTACADAS Y CARRUSEL ---- */
-.farmacias-destacadas-section {
-    position: relative; 
-}
-
-.farmacia-card {
-    border: none;
-    border-radius: 15px;
-    overflow: hidden; 
-    transition: transform 0.3s, box-shadow 0.3s;
-    background-color: #fff;
-    margin: 0 10px; 
-}
-
 
 .farmacia-card .card-img-top {
-    width: 100%; 
-    height: 200px; 
-    object-fit: cover; 
-    object-position: center; 
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
 }
-
 
 .farmacia-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.farmacia-card .card-body {
+    padding: 1.5rem;
+}
+
+.farmacia-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.farmacia-card .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
 .rating-stars {
     color: var(--star-color);
+    font-size: 0.9rem;
+    margin: 0.8rem 0;
 }
 
 .btn-ver-tienda {
@@ -167,10 +182,12 @@ body {
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 0.6rem 2rem;
+    padding: 0.6rem 1.5rem;
     font-weight: 500;
     transition: transform 0.2s;
+    font-size: 0.9rem;
 }
+
 .btn-ver-tienda:hover {
     color: white;
     transform: scale(1.05);
@@ -186,27 +203,34 @@ body {
     top: 50%;
     transform: translateY(-50%);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    opacity: 1;
 }
 
 .carousel-control-prev {
     left: -20px;
 }
+
 .carousel-control-next {
     right: -20px;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-image: none; 
+    background-image: none;
 }
+
 .carousel-control-prev .fa-chevron-left,
 .carousel-control-next .fa-chevron-right {
     color: var(--primary-color);
     font-size: 1rem;
 }
 
-
 /* PUNTOS DEL CARRUSEL */
+.carousel-indicators {
+    position: static;
+    margin: 1.5rem 0 0 0;
+}
+
 .carousel-indicators [data-bs-target] {
     width: 10px;
     height: 10px;
@@ -221,13 +245,12 @@ body {
 }
 
 /* ---- MODAL DE AYUDA ---- */
-
 .modal-backdrop.show {
-    opacity: 0.8; 
+    opacity: 0.8;
 }
 
 .modal.fade .modal-dialog {
-    transform: scale(0.9); 
+    transform: scale(0.9);
     transition: transform 0.3s ease-out;
 }
 
@@ -245,7 +268,7 @@ body {
 
 .guia-modal-content .modal-header {
     position: relative;
-    height: 30px; 
+    height: 30px;
 }
 
 .guia-modal-content .btn-close-custom {
@@ -274,7 +297,7 @@ body {
 .guia-modal-content .modal-title {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #333;
 }
 
@@ -299,36 +322,40 @@ body {
     min-width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #cce9e4; 
-    color: #164941; 
+    background-color: #cce9e4;
+    color: #164941;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .guia-step-text strong {
     display: block;
     color: var(--dark-text);
+    margin-bottom: 0.3rem;
 }
 
 .guia-step-text small {
     color: #6c757d;
+    font-size: 0.9rem;
 }
 
 .dudas-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #333;
+    margin-bottom: 1rem;
 }
 
 .btn-faq {
     background: var(--primary-gradient);
     color: white;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: none;
     border-radius: 50px;
-    padding: 0.8rem 2.5rem;
+    padding: 0.8rem 2rem;
     text-decoration: none;
     display: inline-block;
     transition: transform 0.2s, box-shadow 0.3s;
@@ -340,11 +367,7 @@ body {
     box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
 }
 
-
-
-
 /* ---- ESTILOS PÁGINA DE AYUDA (FAQ) ---- */
-
 .faq-accordion .accordion-item {
     background-color: transparent;
     border: none;
@@ -359,9 +382,9 @@ body {
     font-weight: 500;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+    padding: 1rem 1.5rem;
 }
 
-/* Estilo del botón cuando el acordeón está abierto */
 .faq-accordion .accordion-button:not(.collapsed) {
     background-color: #ffffff;
     color: var(--primary-color);
@@ -371,7 +394,6 @@ body {
     border-bottom-right-radius: 0;
 }
 
-/* Quitar el ícono de flecha por defecto de Bootstrap */
 .faq-accordion .accordion-button::after {
     display: none;
 }
@@ -396,17 +418,16 @@ body {
     color: #555;
 }
 
-
 /* ---- SECCIÓN DE CONTACTO ADICIONAL ---- */
 .contact-help-box {
-    border: 2px solid #a2e4d6; 
+    border: 2px solid #a2e4d6;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: #fff;
 }
 
 .contact-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #a2e4d6;
     margin-bottom: 1rem;
 }
@@ -415,16 +436,15 @@ body {
     color: var(--primary-color);
     font-weight: 700;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
+
 .contact-link:hover {
     color: #6a34cc;
 }
 
-@media (min-width: 768px) {
-    .border-end-md {
-        border-right: 1px solid #dee2e6;
-    }
+.border-end-md {
+    border-right: 1px solid #dee2e6;
 }
 
 .btn-volver-inicio {
@@ -433,7 +453,7 @@ body {
     font-weight: 700;
     border: none;
     border-radius: 50px;
-    padding: 0.8rem 3rem;
+    padding: 0.8rem 2rem;
     text-decoration: none;
     display: inline-block;
     transition: transform 0.2s, box-shadow 0.3s;
@@ -445,5 +465,181 @@ body {
     box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
 }
 
+/* ================================
+   VERSIÓN MÓVIL
+================================ */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
 
+    .main-content-wrapper {
+        padding: 1.5rem;
+        border-radius: 20px;
+        margin: 0.5rem;
+    }
 
+    .primera-vez-section h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .primera-vez-section .lead {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .primera-vez-section .text-md-start {
+        text-align: center !important;
+    }
+
+    .btn-ayuda-main {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .guia-usuarios-card {
+        padding: 1.25rem;
+        margin-top: 1rem;
+    }
+
+    .step-item {
+        padding: 0.8rem;
+    }
+
+    .step-item strong {
+        font-size: 0.9rem;
+    }
+
+    .step-item small {
+        font-size: 0.8rem;
+    }
+
+    /* Carrusel móvil */
+    .farmacias-destacadas-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .farmacia-card {
+        margin: 0 10px;
+    }
+
+    .farmacia-card .card-img-top {
+        height: 160px;
+    }
+
+    .farmacia-card .card-body {
+        padding: 1.25rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carousel-control-prev {
+        left: -10px;
+    }
+
+    .carousel-control-next {
+        right: -10px;
+    }
+
+    /* Modal móvil */
+    .guia-modal-content {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+
+    .guia-modal-content .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .guia-step {
+        padding: 0.8rem;
+        gap: 0.8rem;
+    }
+
+    .guia-step-icon {
+        min-width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .dudas-title {
+        font-size: 1.3rem;
+    }
+
+    .btn-faq {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Contacto móvil */
+    .contact-help-box {
+        padding: 1.25rem;
+        text-align: center;
+    }
+
+    .border-end-md {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .primera-vez-section h1 {
+        font-size: 1.6rem;
+    }
+
+    .main-content-wrapper {
+        padding: 1rem;
+    }
+
+    .farmacias-destacadas-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .farmacia-card .card-img-top {
+        height: 140px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+
+    .guia-usuarios-card {
+        padding: 1rem;
+    }
+
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .step-item .fa-square-check {
+        margin-top: 0;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .primera-vez-section h1 {
+        font-size: 2rem;
+    }
+
+    .main-content-wrapper {
+        padding: 2rem;
+    }
+
+    .farmacia-card .card-img-top {
+        height: 160px;
+    }
+}

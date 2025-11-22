@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d84dde-2641-4c65-bb5c-f6dc92749753" name="Changes" comment="Arreglo de modal para que funciona" />
+    <list default="true" id="d2d84dde-2641-4c65-bb5c-f6dc92749753" name="Changes" comment="Arreglo del carrito">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/estilosHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/estilosHome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/modal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/pago.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/pago.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/registrate.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/registrate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763837616441</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Arreglo del carrito">
+      <option name="closed" value="true" />
+      <created>1763837681167</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1763837681169</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -204,6 +221,7 @@
     <MESSAGE value="Arregle todo el apartado de pago, carrito, detalle de producto para que funcione en perfectas condiciones." />
     <MESSAGE value="Agregado de login css y arreglos a detalle dee producto" />
     <MESSAGE value="Arreglo de modal para que funciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglo de modal para que funciona" />
+    <MESSAGE value="Arreglo del carrito" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglo del carrito" />
   </component>
 </project>

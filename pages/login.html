@@ -17,10 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <!-- Tus estilos - ELIMINAR registrate.css y agregar login.css -->
+    <!-- Tus estilos -->
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/estilosHome.css">
-    <link rel="stylesheet" href="../css/login.css"> <!-- Nuevo archivo para login -->
+    <link rel="stylesheet" href="../css/login.css">
 
     <title>Iniciar Sesión - PharmaHome</title>
 
@@ -31,50 +30,51 @@
 
 <div id="modal-container"></div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <!-- Mensaje de registro exitoso -->
-            <div id="registroExitoso" class="alert alert-success d-none">
-                <i class="fas fa-check-circle me-2"></i>
-                ¡Registro exitoso! Ahora puedes iniciar sesión con tus credenciales.
+<!-- Contenedor principal con espaciado -->
+<div class="main-login-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <!-- Mensaje de registro exitoso -->
+                <div id="registroExitoso" class="alert alert-success d-none">
+                    <i class="fas fa-check-circle me-2"></i>
+                    ¡Registro exitoso! Ahora puedes iniciar sesión con tus credenciales.
+                </div>
+
+                <form class="form-container" id="loginForm">
+                    <h1 class="text-center">Iniciar Sesión</h1>
+
+                    <div class="mb-4">
+                        <label for="loginEmail" class="form-label fw-medium">Correo electrónico</label>
+                        <input
+                                type="email"
+                                class="form-control custom-input"
+                                id="loginEmail"
+                                placeholder="EJ: juan@ejemplo.com"
+                                required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="loginPassword" class="form-label fw-medium">Contraseña</label>
+                        <input
+                                type="password"
+                                class="form-control custom-input"
+                                id="loginPassword"
+                                placeholder="Ingresa tu contraseña"
+                                required
+                        >
+                    </div>
+
+                    <div class="d-grid gap-2 mb-4">
+                        <button type="submit" class="btn btn-gradient btn-lg text-white">Iniciar Sesión</button>
+                    </div>
+
+                    <div class="text-center">
+                        <p>¿No tienes una cuenta? <a href="registrate.html">Regístrate aquí</a></p>
+                    </div>
+                </form>
             </div>
-
-            <form class="form-container" id="loginForm">
-
-                <h1 class="text-center">Iniciar Sesión</h1>
-
-                <div class="mb-4">
-                    <label for="loginEmail" class="form-label fw-medium">Correo electrónico</label>
-                    <input
-                            type="email"
-                            class="form-control custom-input"
-                            id="loginEmail"
-                            placeholder="EJ: juan@ejemplo.com"
-                            required
-                    >
-                </div>
-
-                <div class="mb-4">
-                    <label for="loginPassword" class="form-label fw-medium">Contraseña</label>
-                    <input
-                            type="password"
-                            class="form-control custom-input"
-                            id="loginPassword"
-                            placeholder="Ingresa tu contraseña"
-                            required
-                    >
-                </div>
-
-                <div class="d-grid gap-2 mb-4">
-                    <button type="submit" class="btn btn-gradient btn-lg text-white">Iniciar Sesión</button>
-                </div>
-
-                <div class="text-center">
-                    <p>¿No tienes una cuenta? <a href="registrate.html">Regístrate aquí</a></p>
-                </div>
-
-            </form>
         </div>
     </div>
 </div>
