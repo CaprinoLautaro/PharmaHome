@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="/css/producto.css">
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/detalleproductoB.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
 </head>
 <body>
 
-    <header id="header"></header>
+    <header id="header"> </header>
 
     <div id="modal-container"></div>
 
@@ -86,10 +87,10 @@
                                     <span class="info-value stock">129</span>
                                 </div>
                                 
-                                <!-- Farmacias Disponibles -->
+                                <!-- Farmacias Disponibles - CORREGIDO -->
                                 <div class="pharmacy-selector-container">
                                     <label class="form-label">Seleccioná la farmacia</label>
-                                    <div class="custom-select-wrapper">
+                                    <div class="custom-select-wrapper" id="pharmacy-selector">
                                         <div class="custom-select-trigger">
                                             <span id="selected-pharmacy">Farmacia Villegas (1km)</span>
                                             <i class="fas fa-chevron-down"></i>
@@ -102,6 +103,8 @@
                                             <div class="custom-select-option" data-value="haedo">Central Oeste Haedo (5 km)</div>
                                         </div>
                                     </div>
+                                    <!-- Overlay para móviles -->
+                                    <div class="select-overlay" id="select-overlay"></div>
                                 </div>
                             </div>
                         </div>

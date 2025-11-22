@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d84dde-2641-4c65-bb5c-f6dc92749753" name="Changes" comment="Terminada parte pago">
+    <list default="true" id="d2d84dde-2641-4c65-bb5c-f6dc92749753" name="Changes" comment="Arregle todo el apartado de pago, carrito, detalle de producto para que funcione en perfectas condiciones.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/modal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/carrito.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/carrito.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/detalleProducto.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/detalleProducto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/producto.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/producto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/productos.json" beforeDir="false" afterPath="$PROJECT_DIR$/js/productos.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/tienda.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/tienda.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ayuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ayuda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/detalleproductoB.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/detalleproductoB.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/detalleProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detalleProducto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/detalleProductoC.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/farmacias.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/farmacias.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/registrate.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registrate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tienda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tusRecetas.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tusRecetas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763738017515</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Arregle todo el apartado de pago, carrito, detalle de producto para que funcione en perfectas condiciones.">
+      <option name="closed" value="true" />
+      <created>1763836849233</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1763836849233</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,6 +181,7 @@
     <MESSAGE value="Completando pago html y resolviendo el tema del modal" />
     <MESSAGE value="Completado el apartado de pago" />
     <MESSAGE value="Terminada parte pago" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminada parte pago" />
+    <MESSAGE value="Arregle todo el apartado de pago, carrito, detalle de producto para que funcione en perfectas condiciones." />
+    <option name="LAST_COMMIT_MESSAGE" value="Arregle todo el apartado de pago, carrito, detalle de producto para que funcione en perfectas condiciones." />
   </component>
 </project>
