@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+        function inicializarBuscador() {
+            const searchInput = document.querySelector('.search-form input');
+            const searchBtn = document.querySelector('.search-form button');
+
+            if (searchInput && searchBtn) {
+
+                const realizarBusqueda = () => {
+                    const texto = searchInput.value.trim();
+                    if (texto) {
+                        window.location.href = `/pages/tienda.html?busqueda=${encodeURIComponent(texto)}`;
+                    }
+                };
+
+                searchBtn.addEventListener('click', realizarBusqueda);
+
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') realizarBusqueda();
+                });
+
+            }
+        }
+
+
     // Cargar header
     fetch('../pages/header.html')
         .then(response => {
