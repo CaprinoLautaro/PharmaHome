@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             document.getElementById('header').innerHTML = data;
+            inicializarBuscador();
 
             if (typeof checkSession === 'function') {
                 checkSession();
